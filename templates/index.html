@@ -18,6 +18,7 @@
 
   <meta name="author" content="Piotr Ankiel - Ankiel Studio" />
   <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
   <meta name="theme-color" content="#0f0f10" />
 
   <meta property="og:type" content="website" />
@@ -135,6 +136,10 @@
           <p class="hero-text hero-text-pro">
             {{ _("I design and build clean, strategic websites, landing pages, and custom business solutions for companies, founders, and personal brands that want a stronger online presence and better digital support.") }}
           </p>
+
+          <div class="hero-trust">
+            <span>Flask • Data Tools • Modern Web</span>
+          </div>
 
           <div class="hero-actions">
             <a href="#portfolio" class="btn btn-primary">{{ _("View portfolio") }}</a>
@@ -423,69 +428,99 @@
       </div>
     </section>
 
-<section class="section" id="pricing">
-  <div class="container">
-    <div class="section-heading reveal">
-      <span class="section-kicker">{{ _("Pricing") }}</span>
-      <h2>{{ _("Clear pricing for businesses that want quality, speed, and modern design") }}</h2>
-      <p>
-        {{ _("Clear starting packages for standard projects, with custom quotes available depending on project scope, features, and complexity.") }}
-      </p>
-    </div>
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">{{ _("Pricing") }}</span>
+          <h2>{{ _("Clear pricing for businesses that want quality, speed, and modern design") }}</h2>
+          <p>
+            {{ _("Clear starting packages for standard projects, with custom quotes available depending on project scope, features, and complexity.") }}
+          </p>
+        </div>
 
-    <div class="pricing-grid pricing-grid-pro">
-      <article class="pricing-card reveal">
-        <p class="pricing-plan">{{ _("Starter") }}</p>
-        <h3>$900</h3>
-        <ul class="pricing-list">
-          <li>{{ _("1 modern landing page") }}</li>
-          <li>{{ _("Responsive layout") }}</li>
-          <li>{{ _("Clean visual direction") }}</li>
-          <li>{{ _("Basic sections and contact CTA") }}</li>
-          <li>{{ _("Basic on-page SEO setup") }}</li>
-        </ul>
-        <a href="#contact" class="btn btn-secondary">{{ _("Choose Starter") }}</a>
-      </article>
+        <div class="pricing-grid pricing-grid-pro">
+          <article class="pricing-card reveal">
+            <p class="pricing-plan">{{ _("Starter") }}</p>
+            <h3>$900</h3>
+            <ul class="pricing-list">
+              <li>{{ _("1 modern landing page") }}</li>
+              <li>{{ _("Responsive layout") }}</li>
+              <li>{{ _("Clean visual direction") }}</li>
+              <li>{{ _("Basic sections and contact CTA") }}</li>
+              <li>{{ _("Basic on-page SEO setup") }}</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">{{ _("Choose Starter") }}</a>
+          </article>
 
-      <article class="pricing-card pricing-card-featured reveal">
-        <div class="pricing-badge">{{ _("Most popular") }}</div>
-        <p class="pricing-plan">{{ _("Business") }}</p>
-        <h3>$1600</h3>
-        <ul class="pricing-list">
-          <li>{{ _("Multi-section business website") }}</li>
-          <li>{{ _("Premium modern design") }}</li>
-          <li>{{ _("Stronger page structure and UX") }}</li>
-          <li>{{ _("SEO-ready page structure") }}</li>
-          <li>{{ _("Best choice for most clients") }}</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary">{{ _("Choose Business") }}</a>
-      </article>
+          <article class="pricing-card pricing-card-featured reveal">
+            <div class="pricing-badge">{{ _("Most popular") }}</div>
+            <p class="pricing-plan">{{ _("Business") }}</p>
+            <h3>$1600</h3>
+            <ul class="pricing-list">
+              <li>{{ _("Multi-section business website") }}</li>
+              <li>{{ _("Premium modern design") }}</li>
+              <li>{{ _("Stronger page structure and UX") }}</li>
+              <li>{{ _("SEO-ready page structure") }}</li>
+              <li>{{ _("Best choice for most clients") }}</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">{{ _("Choose Business") }}</a>
+          </article>
 
-      <article class="pricing-card reveal">
-        <p class="pricing-plan">{{ _("Premium") }}</p>
-        <h3>$2600</h3>
-        <ul class="pricing-list">
-          <li>{{ _("Advanced custom website") }}</li>
-          <li>{{ _("High-end visual polish") }}</li>
-          <li>{{ _("Advanced page structure for SEO") }}</li>
-          <li>{{ _("More sections and complexity") }}</li>
-          <li>{{ _("Priority execution") }}</li>
-        </ul>
-        <a href="#contact" class="btn btn-secondary">{{ _("Choose Premium") }}</a>
-      </article>
-    </div>
+          <article class="pricing-card reveal">
+            <p class="pricing-plan">{{ _("Premium") }}</p>
+            <h3>$2600</h3>
+            <ul class="pricing-list">
+              <li>{{ _("Advanced custom website") }}</li>
+              <li>{{ _("High-end visual polish") }}</li>
+              <li>{{ _("Advanced page structure for SEO") }}</li>
+              <li>{{ _("More sections and complexity") }}</li>
+              <li>{{ _("Priority execution") }}</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">{{ _("Choose Premium") }}</a>
+          </article>
+        </div>
 
-    <div class="pricing-includes reveal">
-      <p>
-        {{ _("All projects include responsive design, performance optimization, and a clean foundation for modern SEO.") }}
-      </p>
-    </div>
+        <div class="pricing-includes reveal">
+          <p>
+            {{ _("All projects include responsive design, performance optimization, and a clean foundation for modern SEO.") }}
+          </p>
+        </div>
 
-    <p class="pricing-note reveal">
-      {{ _("Custom quotes are available for smaller projects and more advanced business websites. Final pricing depends on scope, number of sections, and custom functionality.") }}
-    </p>
-  </div>
-</section>
+        <p class="pricing-note reveal">
+          {{ _("Custom quotes are available for smaller projects and more advanced business websites. Final pricing depends on scope, number of sections, and custom functionality.") }}
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">{{ _("Next steps") }}</span>
+          <h2>{{ _("Simple process after your inquiry") }}</h2>
+          <p>{{ _("No complicated sales process — just a few clear steps to move your project forward.") }}</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <span class="process-number">01</span>
+            <h3>{{ _("Send your inquiry") }}</h3>
+            <p>{{ _("Tell me a bit about your business, project type, and what kind of website or tool you need.") }}</p>
+          </article>
+
+          <article class="process-card reveal">
+            <span class="process-number">02</span>
+            <h3>{{ _("Get a reply") }}</h3>
+            <p>{{ _("I’ll get back to you with the next steps, a recommended direction, and an initial quote if the scope is clear.") }}</p>
+          </article>
+
+          <article class="process-card reveal">
+            <span class="process-number">03</span>
+            <h3>{{ _("Start the project") }}</h3>
+            <p>{{ _("Once everything is aligned, we move into execution with a clear scope, timeline, and communication process.") }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <section class="section section-dark contact-section-pro" id="contact">
       <div class="container">

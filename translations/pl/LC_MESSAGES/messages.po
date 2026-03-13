@@ -657,6 +657,21 @@ msgstr "Podstawowa konfiguracja SEO on-page"
 msgid "Working with clients across Europe, the USA, and beyond"
 msgstr "Współpraca z klientami z Europy, USA i innych rynków"
 
+msgid "Next steps"
+msgstr "Kolejne kroki"
+
+msgid "Simple process after your inquiry"
+msgstr "Prosty proces po wysłaniu zapytania"
+
+msgid "Send your inquiry"
+msgstr "Wyślij zapytanie"
+
+msgid "Get a reply"
+msgstr "Otrzymaj odpowiedź"
+
+msgid "Start the project"
+msgstr "Rozpoczęcie projektu"
+
 #~ msgid "Modern web design for ambitious brands"
 #~ msgstr "Nowoczesny web design dla ambitnych marek"
 

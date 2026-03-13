@@ -85,6 +85,18 @@ def home():
     return render_template("index.html")
 
 # --------------------------------------------------
+# ROBOT / SITEMAP
+# --------------------------------------------------
+
+@app.route("/robots.txt")
+def robots():
+    return send_from_directory("static", "robots.txt")
+
+@app.route("/sitemap.xml")
+def sitemap():
+    return send_from_directory("static", "sitemap.xml")
+
+# --------------------------------------------------
 # CONTACT FORM
 # --------------------------------------------------
 
