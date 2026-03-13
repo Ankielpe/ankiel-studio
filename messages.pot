@@ -1,0 +1,537 @@
+# Translations template for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-03-13 01:38+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app.py:99
+msgid "Please fill in your name, email, and message."
+msgstr ""
+
+#: app.py:122
+msgid "Thanks! Your inquiry has been sent successfully."
+msgstr ""
+
+#: app.py:126
+msgid "Email could not be sent right now. Please try again later."
+msgstr ""
+
+#: templates/index.html:7
+msgid "Ankiel Studio | Modern websites for growing businesses"
+msgstr ""
+
+#: templates/index.html:11
+msgid ""
+"Ankiel Studio designs and builds modern websites for businesses, "
+"startups, and brands that want to grow."
+msgstr ""
+
+#: templates/index.html:79 templates/index.html:215 templates/index.html:542
+msgid "About"
+msgstr ""
+
+#: templates/index.html:80 templates/index.html:252 templates/index.html:543
+msgid "Services"
+msgstr ""
+
+#: templates/index.html:81 templates/index.html:290 templates/index.html:544
+msgid "Process"
+msgstr ""
+
+#: templates/index.html:82 templates/index.html:328 templates/index.html:378
+msgid "Portfolio"
+msgstr ""
+
+#: templates/index.html:83 templates/index.html:416 templates/index.html:545
+msgid "Pricing"
+msgstr ""
+
+#: templates/index.html:84 templates/index.html:473 templates/index.html:546
+msgid "Contact"
+msgstr ""
+
+#: templates/index.html:108
+msgid "Open menu"
+msgstr ""
+
+#: templates/index.html:127
+msgid "Premium web design for modern businesses"
+msgstr ""
+
+#: templates/index.html:131
+msgid ""
+"Modern websites that help businesses look premium, build trust, and win "
+"more clients."
+msgstr ""
+
+#: templates/index.html:135
+msgid ""
+"I design and build clean, strategic websites for businesses, founders, "
+"and personal brands that want a stronger online presence and better first"
+" impressions."
+msgstr ""
+
+#: templates/index.html:139
+msgid "View portfolio"
+msgstr ""
+
+#: templates/index.html:140
+msgid "Start a project"
+msgstr ""
+
+#: templates/index.html:145
+msgid "USA + Europe"
+msgstr ""
+
+#: templates/index.html:146
+msgid "Global freelance services"
+msgstr ""
+
+#: templates/index.html:149
+msgid "Fast delivery"
+msgstr ""
+
+#: templates/index.html:150
+msgid "Clear process & communication"
+msgstr ""
+
+#: templates/index.html:153
+msgid "Custom pricing"
+msgstr ""
+
+#: templates/index.html:154
+msgid "Poland-friendly offers available"
+msgstr ""
+
+#: templates/index.html:179
+msgid "Web design that feels modern, sharp and trustworthy."
+msgstr ""
+
+#: templates/index.html:181
+msgid ""
+"Startup-inspired websites for businesses that want a clean, premium "
+"online presence."
+msgstr ""
+
+#: templates/index.html:188
+msgid "Premium visuals"
+msgstr ""
+
+#: templates/index.html:189
+msgid "Modern layouts with stronger first impression."
+msgstr ""
+
+#: templates/index.html:193
+msgid "Better trust"
+msgstr ""
+
+#: templates/index.html:194
+msgid "Clearer messaging and cleaner business presentation."
+msgstr ""
+
+#: templates/index.html:201
+msgid "Startup-level design"
+msgstr ""
+
+#: templates/index.html:205
+msgid "Built to convert"
+msgstr ""
+
+#: templates/index.html:216
+msgid ""
+"Websites designed to make your business look stronger, clearer, and more "
+"valuable."
+msgstr ""
+
+#: templates/index.html:218
+msgid ""
+"Ankiel Studio creates modern websites for businesses that want a better "
+"online presence, more credibility, and a cleaner way to present their "
+"offer."
+msgstr ""
+
+#: templates/index.html:225
+msgid "Modern design with business purpose"
+msgstr ""
+
+#: templates/index.html:227
+msgid ""
+"Every project is built with a clear goal: make your brand look premium, "
+"communicate value fast, and turn visitors into real leads."
+msgstr ""
+
+#: templates/index.html:232
+msgid "Clean UI"
+msgstr ""
+
+#: templates/index.html:233
+msgid "Minimal, modern layouts inspired by the best startup and SaaS brands."
+msgstr ""
+
+#: templates/index.html:237
+msgid "Responsive build"
+msgstr ""
+
+#: templates/index.html:238
+msgid "Your website will look sharp on desktop, tablet, and mobile."
+msgstr ""
+
+#: templates/index.html:242
+msgid "Fast communication"
+msgstr ""
+
+#: templates/index.html:243
+msgid ""
+"Clear process, smooth collaboration, and focused execution from start to "
+"finish."
+msgstr ""
+
+#: templates/index.html:253
+msgid "Website services tailored to modern brands and growing businesses"
+msgstr ""
+
+#: templates/index.html:255
+msgid ""
+"From simple landing pages to full business websites, each project is "
+"designed to look premium and support real business goals."
+msgstr ""
+
+#: templates/index.html:262
+msgid "Business websites"
+msgstr ""
+
+#: templates/index.html:263
+msgid ""
+"Professional websites for companies that need trust, clarity, and a "
+"modern digital presence."
+msgstr ""
+
+#: templates/index.html:268
+msgid "Landing pages"
+msgstr ""
+
+#: templates/index.html:269
+msgid ""
+"Focused pages designed to promote one service, one offer, or one clear "
+"conversion goal."
+msgstr ""
+
+#: templates/index.html:274
+msgid "Portfolio websites"
+msgstr ""
+
+#: templates/index.html:275
+msgid "Elegant personal websites for freelancers, creators, and specialists."
+msgstr ""
+
+#: templates/index.html:280
+msgid "UI refresh / redesign"
+msgstr ""
+
+#: templates/index.html:281
+msgid ""
+"A cleaner, more premium visual direction for outdated or weak-looking "
+"websites."
+msgstr ""
+
+#: templates/index.html:291
+msgid "A clear process that keeps the project simple and professional."
+msgstr ""
+
+#: templates/index.html:293
+msgid ""
+"You always know what happens next, what I’m working on, and how we move "
+"from idea to launch."
+msgstr ""
+
+#: templates/index.html:300
+msgid "Discovery"
+msgstr ""
+
+#: templates/index.html:301
+msgid ""
+"We define your goals, audience, offer, and the role your website should "
+"play in the business."
+msgstr ""
+
+#: templates/index.html:306
+msgid "Direction"
+msgstr ""
+
+#: templates/index.html:307
+msgid ""
+"I shape the layout, structure, and visual direction so the site feels "
+"premium and clear."
+msgstr ""
+
+#: templates/index.html:312
+msgid "Build"
+msgstr ""
+
+#: templates/index.html:313
+msgid ""
+"The website gets developed into a fast, responsive, polished experience "
+"across devices."
+msgstr ""
+
+#: templates/index.html:318
+msgid "Launch"
+msgstr ""
+
+#: templates/index.html:319
+msgid ""
+"After review and refinements, the project goes live and is ready to "
+"represent your business."
+msgstr ""
+
+#: templates/index.html:329
+msgid "Selected concepts and project direction"
+msgstr ""
+
+#: templates/index.html:331
+msgid ""
+"Example presentation blocks for future projects, client work, or case "
+"studies."
+msgstr ""
+
+#: templates/index.html:346
+msgid "Business Website"
+msgstr ""
+
+#: templates/index.html:347
+msgid "Premium company presentation"
+msgstr ""
+
+#: templates/index.html:348
+msgid ""
+"A clean corporate layout focused on trust, clarity, and stronger lead "
+"generation."
+msgstr ""
+
+#: templates/index.html:362
+msgid "Landing Page"
+msgstr ""
+
+#: templates/index.html:363
+msgid "Offer page for service conversion"
+msgstr ""
+
+#: templates/index.html:364
+msgid ""
+"A focused, modern layout with stronger messaging and cleaner calls to "
+"action."
+msgstr ""
+
+#: templates/index.html:379
+msgid "Minimal personal brand site"
+msgstr ""
+
+#: templates/index.html:380
+msgid ""
+"A sharp, visual-first website for freelancers and specialists building "
+"authority online."
+msgstr ""
+
+#: templates/index.html:391
+msgid "Why clients choose this style"
+msgstr ""
+
+#: templates/index.html:392
+msgid ""
+"A modern website does more than look good — it changes how your business "
+"is perceived."
+msgstr ""
+
+#: templates/index.html:397
+msgid "Stronger credibility"
+msgstr ""
+
+#: templates/index.html:398
+msgid "A better first impression for new visitors."
+msgstr ""
+
+#: templates/index.html:401
+msgid "Cleaner messaging"
+msgstr ""
+
+#: templates/index.html:402
+msgid "Your offer becomes easier to understand fast."
+msgstr ""
+
+#: templates/index.html:405
+msgid "Higher perceived value"
+msgstr ""
+
+#: templates/index.html:406
+msgid "Premium design supports premium pricing."
+msgstr ""
+
+#: templates/index.html:417
+msgid "Clear pricing for businesses that want quality, speed, and modern design"
+msgstr ""
+
+#: templates/index.html:419
+msgid ""
+"Straightforward starting packages for international clients, with custom "
+"pricing available for projects in Poland."
+msgstr ""
+
+#: templates/index.html:425
+msgid "Starter"
+msgstr ""
+
+#: templates/index.html:428
+msgid "1 modern landing page"
+msgstr ""
+
+#: templates/index.html:429
+msgid "Responsive layout"
+msgstr ""
+
+#: templates/index.html:430
+msgid "Basic sections and contact CTA"
+msgstr ""
+
+#: templates/index.html:431
+msgid "Clean visual direction"
+msgstr ""
+
+#: templates/index.html:433
+msgid "Choose Starter"
+msgstr ""
+
+#: templates/index.html:437
+msgid "Most popular"
+msgstr ""
+
+#: templates/index.html:438
+msgid "Business"
+msgstr ""
+
+#: templates/index.html:441
+msgid "Multi-section business website"
+msgstr ""
+
+#: templates/index.html:442
+msgid "Premium modern design"
+msgstr ""
+
+#: templates/index.html:443
+msgid "Stronger structure and UX"
+msgstr ""
+
+#: templates/index.html:444
+msgid "Best choice for most clients"
+msgstr ""
+
+#: templates/index.html:446
+msgid "Choose Business"
+msgstr ""
+
+#: templates/index.html:450
+msgid "Premium"
+msgstr ""
+
+#: templates/index.html:453
+msgid "Advanced custom website"
+msgstr ""
+
+#: templates/index.html:454
+msgid "High-end visual polish"
+msgstr ""
+
+#: templates/index.html:455
+msgid "More sections and complexity"
+msgstr ""
+
+#: templates/index.html:456
+msgid "Priority execution"
+msgstr ""
+
+#: templates/index.html:458
+msgid "Choose Premium"
+msgstr ""
+
+#: templates/index.html:463
+msgid ""
+"Custom pricing available for businesses in Poland. Typical local projects"
+" start from"
+msgstr ""
+
+#: templates/index.html:474
+msgid ""
+"Let’s create a website that gives your business a stronger online "
+"presence."
+msgstr ""
+
+#: templates/index.html:476
+msgid ""
+"Send a message with a few details about your business or project, and "
+"I’ll get back to you with the next steps."
+msgstr ""
+
+#: templates/index.html:481
+msgid "Fast reply"
+msgstr ""
+
+#: templates/index.html:482
+msgid "Clear communication and simple process"
+msgstr ""
+
+#: templates/index.html:485
+msgid "Global clients"
+msgstr ""
+
+#: templates/index.html:486
+msgid "Projects for USA, Europe, and Poland"
+msgstr ""
+
+#: templates/index.html:506
+msgid "Name"
+msgstr ""
+
+#: templates/index.html:507
+msgid "Your name"
+msgstr ""
+
+#: templates/index.html:511
+msgid "Email"
+msgstr ""
+
+#: templates/index.html:516
+msgid "Project type"
+msgstr ""
+
+#: templates/index.html:517
+msgid "Business website / landing page / redesign"
+msgstr ""
+
+#: templates/index.html:521
+msgid "Message"
+msgstr ""
+
+#: templates/index.html:522
+msgid "Tell me a bit about your project"
+msgstr ""
+
+#: templates/index.html:526
+msgid "Send inquiry"
+msgstr ""
+
+#: templates/index.html:538
+msgid "Modern websites for businesses, startups and personal brands."
+msgstr ""
+
