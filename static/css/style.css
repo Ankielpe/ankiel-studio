@@ -318,10 +318,10 @@ textarea {
 
 html[lang="pl"] .hero-title,
 html[lang="pl"] .hero h1 {
-  font-size: clamp(2.15rem, 3.4vw, 3.9rem);
-  line-height: 0.99;
+  font-size: clamp(2.2rem, 3.5vw, 4rem);
+  line-height: 0.98;
   letter-spacing: -0.04em;
-  max-width: 9.8ch;
+  max-width: 10.8ch;
 }
 
 .hero-text {
@@ -1388,6 +1388,16 @@ html[lang="pl"] .hero h1 {
     min-height: 76px;
   }
 
+@media (max-width: 860px) {
+  html[lang="pl"] .hero-title,
+  html[lang="pl"] .hero h1 {
+    font-size: clamp(2.3rem, 7vw, 3.9rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    max-width: 11ch;
+  }
+}
+
   .hero {
     padding: 72px 0 74px;
     min-height: auto;
@@ -1440,8 +1450,9 @@ html[lang="pl"] .hero h1 {
   }
 
   .hero-badge {
-    font-size: 0.82rem;
-    padding: 10px 14px;
+    font-size: 0.78rem;
+    padding: 9px 13px;
+    line-height: 1.35;
   }
 
   .hero-actions {
@@ -1496,6 +1507,15 @@ html[lang="pl"] .hero h1 {
   .site-header {
     backdrop-filter: blur(12px);
   }
+
+@media (max-width: 480px) {
+  html[lang="pl"] .hero-title,
+  html[lang="pl"] .hero h1 {
+    font-size: 2.05rem;
+    line-height: 0.98;
+    max-width: 10.5ch;
+  }
+}
 
   .hero {
     padding: 58px 0 64px;
