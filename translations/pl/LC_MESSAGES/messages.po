@@ -82,8 +82,8 @@ msgid ""
 "Modern websites and digital tools that help businesses look premium, "
 "build trust, and work smarter."
 msgstr ""
-"Nowoczesne strony i narzędzia cyfrowe, które pomagają firmom wyglądać premium, "
-"budować zaufanie i działać mądrzej."
+"Nowoczesne strony i narzędzia cyfrowe dla firm, które chcą budować zaufanie "
+"i działać skuteczniej."
 
 #: templates/index.html:136
 msgid ""

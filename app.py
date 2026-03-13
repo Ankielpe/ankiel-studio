@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 from flask_babel import Babel, _
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
+from whitenoise import WhiteNoise
 
 # --------------------------------------------------
 # LOAD ENV
@@ -15,6 +16,7 @@ load_dotenv()
 # --------------------------------------------------
 
 app = Flask(__name__)
+app.wsgi_app = WhiteNoise(app.wsgi_app, root="static")
 app.secret_key = os.getenv("SECRET_KEY", "dev-secret-key-change-me")
 
 # --------------------------------------------------
