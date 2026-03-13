@@ -307,13 +307,13 @@ textarea {
 
 .hero-title,
 .hero h1 {
-  font-size: clamp(3rem, 5.2vw, 5.4rem);
-  line-height: 0.94;
-  letter-spacing: -0.055em;
+  font-size: clamp(2.4rem, 4.2vw, 4.4rem);
+  line-height: 0.97;
+  letter-spacing: -0.045em;
   font-weight: 800;
   color: #101114;
   margin-bottom: 22px;
-  max-width: 8.8ch;
+  max-width: 11.5ch;
 }
 
 .hero-text {
@@ -1518,4 +1518,15 @@ textarea {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.pricing-includes {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.pricing-includes p {
+  color: #5f6470;
+  font-size: 0.98rem;
+  line-height: 1.6;
 }

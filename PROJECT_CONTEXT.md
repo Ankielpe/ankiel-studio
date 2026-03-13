@@ -1,246 +1,347 @@
-📄 PROJECT_CONTEXT.md
-ANKIEL STUDIO — Freelance Web Design Website
-👤 Author
+# Ankiel Studio Website
 
-Piotr Ankiel
-Kraków, Poland
+Modern freelance business website built for **Ankiel Studio** — a web design studio focused on creating premium websites for businesses, startups, and personal brands.
 
-Freelancer / Digital Studio
-Specializing in modern websites for businesses and startups
+## Overview
 
-Target markets:
+This project is a custom marketing website designed to present Ankiel Studio as a modern digital service brand.  
+It combines a clean premium UI, multilingual support, contact form handling, and deployment readiness.
 
-🇺🇸 United States
+The website is built with:
 
-🇪🇺 Europe
+- Flask
+- Flask-Babel
+- Flask-Mail
+- HTML / CSS / JavaScript
+- Render deployment configuration
 
-🇵🇱 Poland (local projects)
+## Features
 
-🎯 Project Goal
+- Modern premium landing page
+- Responsive layout
+- EN / PL language switcher
+- SEO-friendly structure
+- Contact form with email delivery
+- Favicon and branding assets
+- Render-ready deployment setup
+- Translation support with `.po` / `.mo`
 
-Create a modern freelance portfolio website used to acquire web design clients.
+## Tech Stack
 
-The site should communicate:
+- **Backend:** Python, Flask
+- **Frontend:** HTML, CSS, JavaScript
+- **Internationalization:** Flask-Babel
+- **Email handling:** Flask-Mail
+- **Environment variables:** python-dotenv
+- **Deployment:** Render
+- **Version control:** Git + GitHub
 
-premium quality
+## Project Structure
 
-modern technology
-
-startup-level design
-
-trust and professionalism
-
-Inspired by design styles of:
-
-Stripe
-
-Vercel
-
-Linear
-
-Framer
-
-🎨 Branding
-Brand name
-
-ANKIEL STUDIO
-
-Design Style
-
-minimalist
-
-startup aesthetic
-
-modern typography
-
-lots of whitespace
-
-subtle background patterns
-
-smooth hover animations
-
-Color palette
-
-Primary background:
-
-#0f0f10
-
-Accent colors:
-
-#2bb9c3
-#1f9ea7
-
-Text:
-
-#ffffff
-
-Light background sections:
-
-#f7f9fa
-🧩 Project Architecture
-
-Website built using Flask + static frontend
-
+```bash
 ankiel-studio/
-
 ├── app.py
 ├── requirements.txt
 ├── Procfile
 ├── render.yaml
-
+├── .env.example
+├── .gitignore
+├── babel.cfg
+├── messages.pot
+│
 ├── templates/
 │   └── index.html
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── main.js
+│   ├── img/
+│   │   ├── logo-main.png
+│   │   ├── logo-badge.png
+│   │   ├── favicon.svg
+│   │   ├── favicon.png
+│   │   └── bg-pattern-light.png
+│   ├── robots.txt
+│   └── sitemap.xml
+│
+└── translations/
+    ├── en/
+    │   └── LC_MESSAGES/
+    └── pl/
+        └── LC_MESSAGES/
 
-└── static/
-    ├── css/
-    │   └── style.css
-    │
-    ├── js/
-    │   └── main.js
-    │
-    └── img/
-        ├── logo-main.png
-        ├── logo-badge.png
-        ├── favicon.svg
-        ├── favicon.png
-        └── bg-pattern-light.png
-🧠 Website Structure
+Ankiel Studio – model sprzedaży stron (NOTATKA)
+Kluczowa zasada sprzedaży
 
-Single-page layout.
+Klient nie kupuje strony internetowej.
 
-Sections:
+Klient kupuje:
 
-1 Navbar
-2 Hero
-3 About
-4 Services
-5 Portfolio
-6 Process
-7 Pricing
-8 Contact
-9 Footer
-💰 Pricing Strategy
+lepszy wizerunek firmy
 
-Global pricing (USD):
+większe zaufanie klientów
 
-Starter
-$900
-Business
-$1600
-Premium
-$2600
+więcej zapytań / leadów
 
-Additional message:
+profesjonalną obecność online
 
-Custom pricing available for businesses in Poland.
-Typical local projects start from 2000 PLN.
+Dlatego komunikacja powinna wyglądać tak:
 
-🎨 Visual Layout
-Navbar
+❌ Źle
+„Zrobię stronę za 2000 dolarów.”
 
-black background
+✅ Dobrze
+„Pomagam firmom wyglądać premium online i zdobywać więcej klientów dzięki nowoczesnym stronom.”
 
-logo badge on the left
+Proces sprzedaży projektu
+1. Lead – skąd przychodzi klient
 
-navigation links
+Najczęściej:
 
-CTA button (Contact)
+strona portfolio
 
-Hero section
+LinkedIn
 
-Large headline:
+Upwork
 
-Example:
+polecenia
 
-Modern websites for businesses that want to grow.
+cold outreach
 
-Subtext:
+GitHub / projekty
 
-I design and build high-quality websites that convert visitors into customers.
+Klient trafia na stronę i widzi:
 
-CTA buttons:
+profesjonalny design
 
-View portfolio
-Start a project
-📦 Assets
+jasną ofertę
 
-Location:
+pricing
 
-static/img/
+formularz kontaktowy
 
-Files used:
+To buduje zaufanie.
 
-logo-main.png
-logo-badge.png
-favicon.svg
-favicon.png
-bg-pattern-light.png
-📍 Current Development Stage
+2. Pierwsza wiadomość klienta
 
-Completed:
+Klient pisze np.:
 
-✅ branding concept
-✅ project structure
-✅ asset planning
-✅ favicon.svg
+Hi, I'm looking for a website for my consulting business.
 
-🧩 Current Task
+Freelancer nie wysyła ceny od razu.
 
-We are generating image assets.
+Najpierw zadaje pytania.
 
-Next files to create:
+Przykładowe pytania:
 
-favicon.png
-bg-pattern-light.png
-logo-main.png
-logo-badge.png
+What does your business do?
 
-After assets:
+Who is your target audience?
 
-index.html
-style.css
-main.js
+What is the main goal of the website?
+
+Do you already have branding or logo?
+
+When would you like the project to go live?
+
+Cel:
+
+przejść z rozmowy:
+
+„ile kosztuje strona”
+
+na
+
+„jak strona ma pomóc Twojemu biznesowi”.
+
+3. Discovery call
+
+Najważniejszy etap.
+
+Rozmowa trwa zwykle:
+
+15–30 minut.
+
+Cel rozmowy:
+
+zrozumieć biznes klienta
+
+pokazać kompetencję
+
+zbudować zaufanie
+
+Przykładowe pytania:
+
+What kind of clients are you trying to attract?
+
+What makes your business different?
+
+How do clients usually find you today?
+
+What do you want the website to achieve?
+
+Rozmowa powinna wyglądać jak konsultacja, nie sprzedaż.
+
+4. Oferta po rozmowie
+
+Po rozmowie freelancer wysyła mini proposal.
+
+Nie wysyła tylko ceny.
+
+Przykład:
+
+Project: Business Website for Consulting Company
 
 Goal:
+Create a modern website that presents the company as a premium consulting brand and helps convert visitors into leads.
 
-Create a fully functional Ankiel Studio website ready to deploy on Render.
+Scope:
 
-🚀 Future Features (optional)
+modern responsive website
 
-Potential upgrades:
+service presentation
 
-animated hero
+clear offer structure
 
-project case studies
+contact form
 
-blog
+SEO foundations
 
-client testimonials
+Timeline:
+2 weeks
 
-contact form with email integration
+Investment:
+$1800
 
-CMS for portfolio projects
+Ważne słowo:
 
-📍 Development Rule
+Investment (inwestycja), nie price.
 
-When generating code:
+5. Wybór pakietu
 
-keep design clean and modern
+Klient wybiera jeden z pakietów:
 
-prefer responsive layouts
+Starter
+Business ⭐
+Premium
 
-avoid heavy frameworks
+W większości przypadków klienci wybierają:
 
-focus on performance and simplicity
+Business
 
-💡 Tip (bardzo ważne)
+Dlaczego:
 
-Ten plik możesz:
+wygląda jak najbardziej rozsądna opcja.
 
-wkleić na początku każdego czata
+To efekt psychologii sprzedaży.
 
-albo trzymać w projekcie jako
+6. Zaliczka
 
-PROJECT_CONTEXT.md
+Standard w freelancingu:
 
-i wtedy AI zawsze rozumie projekt od razu.
+30–50% zaliczki.
+
+Przykład:
+
+Project price: $1800
+Deposit: $900
+Remaining after launch: $900
+
+Praca zaczyna się dopiero po wpłacie.
+
+7. Realizacja projektu
+
+Standardowy proces:
+
+discovery
+
+struktura strony
+
+design
+
+development
+
+launch
+
+Klient widzi uporządkowany proces.
+
+To buduje profesjonalny wizerunek.
+
+8. Launch
+
+Po zakończeniu projektu klient dostaje:
+
+link do strony
+
+dostęp do repo
+
+instrukcję obsługi
+
+Freelancer często pyta:
+
+“Would you like help with future improvements or SEO?”
+
+To otwiera drogę do kolejnych projektów.
+
+Typowe dochody freelancerów
+Projekty miesięcznie	Cena projektu	Dochód
+1	$3000	$3000
+2	$2500	$5000
+3	$2000	$6000
+
+Dlatego wielu freelancerów robi:
+
+2 projekty miesięcznie
+
+i ma bardzo dobry dochód.
+
+Dlaczego klienci płacą $2000–5000
+
+Bo freelancer:
+
+wygląda profesjonalnie
+
+ma uporządkowany proces
+
+dobrze komunikuje się z klientem
+
+pokazuje wartość biznesową
+
+prezentuje projekt jako inwestycję
+
+Nie sprzedaje kodu.
+
+Sprzedaje rezultat biznesowy.
+
+Największy błąd freelancerów
+
+❌
+„Strona kosztuje 1500 zł.”
+
+✅
+„We build a modern website that helps your business look premium and convert visitors into clients.”
+
+Ta zmiana komunikacji robi ogromną różnicę.
+
+Wniosek dla Ankiel Studio
+
+Twoja obecna strona ma już:
+
+profesjonalny wygląd
+
+pricing
+
+sekcje sprzedażowe
+
+formularz kontaktowy
+
+Czyli fundament sprzedaży usług freelancera.
+
+Może być używana jako strona do zdobywania klientów.
+
+Jeśli chcesz, mogę też zrobić Ci jeszcze jedną mega ważną notatkę:
+
+„Jak zdobyć pierwszych 5 klientów na strony w 30 dni”
+(konkretne działania, nie teoria).
