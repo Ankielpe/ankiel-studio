@@ -677,6 +677,33 @@ msgstr "Odezwę się z kolejnymi krokami, proponowanym kierunkiem oraz wstępną
 msgid "Once everything is aligned, we move into execution with a clear scope, timeline, and communication process."
 msgstr "Gdy wszystko będzie ustalone, przechodzimy do realizacji z jasno określonym zakresem, harmonogramem i sposobem komunikacji."
 
+msgid "Selected website projects"
+msgstr "Wybrane realizacje stron internetowych"
+
+msgid "A selection of website projects, concepts, and digital work created for businesses, service brands, and personal projects."
+msgstr "Wybrane realizacje stron, koncepcji i projektów cyfrowych tworzonych dla firm, marek usługowych i projektów osobistych."
+
+msgid "Client project"
+msgstr "Projekt klienta"
+
+msgid "Concept project"
+msgstr "Projekt koncepcyjny"
+
+msgid "Masarnia Jastew"
+msgstr "Masarnia Jastew"
+
+msgid "A modern business website created for a traditional butcher brand. The project focused on clear presentation, stronger trust, mobile responsiveness, and a clean contact experience."
+msgstr "Nowoczesna strona firmowa stworzona dla tradycyjnej marki masarskiej. Projekt koncentrował się na czytelnej prezentacji oferty, budowaniu zaufania, responsywności mobilnej i prostym kontakcie."
+
+msgid "Scope: website design, frontend development, responsive layout, contact form, basic SEO"
+msgstr "Zakres: projekt strony, wdrożenie frontendu, responsywny układ, formularz kontaktowy, podstawowe SEO"
+
+msgid "View live website"
+msgstr "Zobacz stronę"
+
+msgid "High-conversion landing page"
+msgstr "Landing page nastawiony na wysoką konwersję"
+
 #~ msgid "Modern web design for ambitious brands"
 #~ msgstr "Nowoczesny web design dla ambitnych marek"
 
