@@ -351,17 +351,18 @@
     </div>
 
     <div class="portfolio-grid portfolio-grid-pro">
-      <article class="portfolio-card portfolio-card-pro reveal">
-        <div class="portfolio-preview portfolio-preview-one">
-          <div class="preview-browser">
-            <div class="preview-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="preview-layout preview-layout-one"></div>
-          </div>
+      <article class="portfolio-card portfolio-card-pro portfolio-card-live reveal">
+        <div class="portfolio-preview">
+          <img
+            src="{{ url_for('static', filename='img/masarniajastew-preview.png') }}"
+            alt="Masarnia Jastew website preview"
+          >
         </div>
+
         <div class="portfolio-body">
-          <p class="portfolio-label">{{ _("Client project") }}</p>
+          <p class="portfolio-label portfolio-label-live">
+            {{ _("Live client project") }}
+          </p>
           <h3>{{ _("Masarnia Jastew") }}</h3>
           <p>{{ _("A modern business website created for a traditional butcher brand. The project focused on clear presentation, stronger trust, mobile responsiveness, and a clean contact experience.") }}</p>
 

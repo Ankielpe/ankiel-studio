@@ -704,6 +704,9 @@ msgstr "Zobacz stronę"
 msgid "High-conversion landing page"
 msgstr "Landing page nastawiony na wysoką konwersję"
 
+msgid "Live client project"
+msgstr "Realizacja dla klienta"
+
 #~ msgid "Modern web design for ambitious brands"
 #~ msgstr "Nowoczesny web design dla ambitnych marek"
 
