@@ -109,7 +109,7 @@ msgstr "USA + Europa"
 
 #: templates/index.html:147
 msgid "Global freelance services"
-msgstr "Usługi freelancerskie globalnie"
+msgstr "Usługi freelancerskie dla klientów z całego świata"
 
 #: templates/index.html:150
 msgid "Fast delivery"
@@ -537,7 +537,7 @@ msgstr "Zaawansowana strona na zamówienie"
 
 #: templates/index.html:467
 msgid "High-end visual polish"
-msgstr "Dopracowanie wizualne high-end"
+msgstr "Zaawansowane dopracowanie wizualne"
 
 #: templates/index.html:468
 msgid "More sections and complexity"
@@ -588,10 +588,6 @@ msgstr "Jasna komunikacja i prosty proces"
 #: templates/index.html:497
 msgid "Global clients"
 msgstr "Klienci globalni"
-
-#: templates/index.html:498
-msgid "Projects for USA, Europe, and Poland"
-msgstr "Projekty dla USA, Europy i Polski"
 
 #: templates/index.html:518
 msgid "Name"
@@ -651,9 +647,6 @@ msgstr "Lepsza struktura strony i UX"
 msgid "Advanced page structure for SEO"
 msgstr "Zaawansowana struktura strony pod SEO"
 
-msgid "Basic on-page SEO setup"
-msgstr "Podstawowa konfiguracja SEO on-page"
-
 msgid "Working with clients across Europe, the USA, and beyond"
 msgstr "Współpraca z klientami z Europy, USA i innych rynków"
 
@@ -671,6 +664,18 @@ msgstr "Otrzymaj odpowiedź"
 
 msgid "Start the project"
 msgstr "Rozpoczęcie projektu"
+
+msgid "No complicated sales process — just a few clear steps to move your project forward."
+msgstr "Bez skomplikowanego procesu sprzedaży — tylko kilka prostych kroków, które pozwolą ruszyć z Twoim projektem."
+
+msgid "Tell me a bit about your business, project type, and what kind of website or tool you need."
+msgstr "Opowiedz krótko o swojej firmie, typie projektu oraz o tym, jakiej strony lub narzędzia potrzebujesz."
+
+msgid "I’ll get back to you with the next steps, a recommended direction, and an initial quote if the scope is clear."
+msgstr "Odezwę się z kolejnymi krokami, proponowanym kierunkiem oraz wstępną wyceną, jeśli zakres projektu będzie jasny."
+
+msgid "Once everything is aligned, we move into execution with a clear scope, timeline, and communication process."
+msgstr "Gdy wszystko będzie ustalone, przechodzimy do realizacji z jasno określonym zakresem, harmonogramem i sposobem komunikacji."
 
 #~ msgid "Modern web design for ambitious brands"
 #~ msgstr "Nowoczesny web design dla ambitnych marek"
