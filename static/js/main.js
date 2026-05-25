@@ -242,11 +242,11 @@ function initWebglBackground(reduceMotion) {
     roughness: 0.34,
     metalness: 0.12,
     transparent: true,
-    opacity: 0.42,
+    opacity: 0.26,
     wireframe: true,
   });
   const blob = new THREE.Mesh(blobGeometry, blobMaterial);
-  blob.position.set(2.4, 0.1, 0);
+  blob.position.set(3.25, -0.72, -0.4);
   scene.add(blob);
 
   const glowGeometry = new THREE.IcosahedronGeometry(2.15, 16);
@@ -279,6 +279,8 @@ function initWebglBackground(reduceMotion) {
     depthWrite: false,
   });
   const particles = new THREE.Points(particleGeometry, particleMaterial);
+  particles.position.y = -0.12;
+  particles.position.x = -0.35;
   scene.add(particles);
 
   const keyLight = new THREE.PointLight(0x8ff6fb, 2.2, 22);
@@ -325,8 +327,8 @@ function initWebglBackground(reduceMotion) {
 
     blob.rotation.x = time * 0.12 + mouse.y * 0.08;
     blob.rotation.y = time * 0.18 + mouse.x * 0.14;
-    blob.position.x = 2.4 + mouse.x * 0.24;
-    blob.position.y = 0.1 - mouse.y * 0.18 - scrollRatio * 0.25;
+    blob.position.x = 3.25 + mouse.x * 0.18;
+    blob.position.y = -0.72 - mouse.y * 0.12 - scrollRatio * 0.18;
 
     glow.rotation.copy(blob.rotation);
     glow.position.copy(blob.position);
