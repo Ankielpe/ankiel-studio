@@ -1,39 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
-    <loc>https://ankielstudio.com/</loc>
+    <loc>https://ankiel-studio.com/en/</loc>
     <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://ankielstudio.com/#about</loc>
-    <priority>0.8</priority>
+    <loc>https://ankiel-studio.com/pl/</loc>
+    <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://ankielstudio.com/#services</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://ankielstudio.com/#process</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://ankielstudio.com/#portfolio</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://ankielstudio.com/#pricing</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://ankielstudio.com/#contact</loc>
+    <loc>https://ankiel-studio.com/en/premium-web-design</loc>
     <priority>0.9</priority>
   </url>
-
+  <url>
+    <loc>https://ankiel-studio.com/pl/premium-web-design</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankiel-studio.com/en/landing-pages</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankiel-studio.com/pl/landing-pages</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankiel-studio.com/en/flask-web-development</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankiel-studio.com/pl/flask-web-development</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankiel-studio.com/en/dashboard-development</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankiel-studio.com/pl/dashboard-development</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ankiel-studio.com/en/work/masarnia-jastew</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ankiel-studio.com/pl/work/masarnia-jastew</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>

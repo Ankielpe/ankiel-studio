@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ankielstudio.com/sitemap.xml
+Sitemap: https://ankiel-studio.com/sitemap.xml

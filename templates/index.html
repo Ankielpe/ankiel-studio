@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>{{ _("Ankiel Studio | Modern websites and digital solutions for growing businesses") }}</title>
+  <title>{{ seo.title if seo is defined else _("Ankiel Studio | Modern websites and digital solutions for growing businesses") }}</title>
 
   <meta
     name="description"
-    content="{{ _('Ankiel Studio designs and builds modern websites, landing pages, and custom digital solutions for businesses that want to grow.') }}"
+    content="{{ seo.description if seo is defined else _('Ankiel Studio designs and builds modern websites, landing pages, and custom digital solutions for businesses that want to grow.') }}"
   />
 
   <meta
@@ -22,51 +22,80 @@
   <meta name="theme-color" content="#0f0f10" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ankiel Studio | Modern websites and digital solutions for growing businesses" />
+  <meta property="og:title" content="{{ seo.title if seo is defined else _('Ankiel Studio | Premium interactive websites') }}" />
   <meta
     property="og:description"
-    content="Modern websites, landing pages, and digital solutions for businesses that want a premium online presence and better business tools."
+    content="{{ seo.description if seo is defined else _('Premium interactive websites, landing pages, and digital systems for ambitious brands.') }}"
   />
   <meta property="og:image" content="{{ url_for('static', filename='img/logo-main.png', _external=True) }}" />
-  <meta property="og:url" content="{{ request.url_root }}" />
+  <meta property="og:url" content="{{ seo.canonical_url if seo is defined else request.url }}" />
   <meta property="og:site_name" content="Ankiel Studio" />
+  <meta property="og:locale" content="{{ 'pl_PL' if current_lang == 'pl' else 'en_US' }}" />
+  <meta property="og:locale:alternate" content="{{ 'en_US' if current_lang == 'pl' else 'pl_PL' }}" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ankiel Studio | Modern websites and digital solutions for growing businesses" />
+  <meta name="twitter:title" content="{{ seo.title if seo is defined else _('Ankiel Studio | Premium interactive websites') }}" />
   <meta
     name="twitter:description"
-    content="Modern websites, landing pages, and digital solutions for businesses that want a premium online presence and better business tools."
+    content="{{ seo.description if seo is defined else _('Premium interactive websites for ambitious brands.') }}"
   />
   <meta name="twitter:image" content="{{ url_for('static', filename='img/logo-main.png', _external=True) }}" />
 
-  <link rel="canonical" href="{{ request.url }}" />
-
+  <link rel="canonical" href="{{ seo.canonical_url if seo is defined else request.url }}" />
+  {% if seo is defined %}
+    {% for lang, href in seo.alternate_urls.items() %}
+      <link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ seo.alternate_urls.get('en') }}" />
+  {% endif %}
   <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/favicon.svg') }}?v=2">
   <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.svg') }}?v=2">
-
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Ankiel Studio",
-    "url": "{{ request.url_root }}",
-    "logo": "{{ url_for('static', filename='img/logo-main.png', _external=True) }}",
-    "image": "{{ url_for('static', filename='img/logo-main.png', _external=True) }}",
-    "description": "Ankiel Studio designs and builds modern websites, landing pages, dashboards, and custom digital solutions for businesses.",
-    "areaServed": ["Poland", "Europe", "United States"],
-    "founder": {
-      "@type": "Person",
-      "name": "Piotr Ankiel"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ site_url }}/#organization",
+        "name": "Ankiel Studio",
+        "url": "{{ site_url }}/",
+        "logo": "{{ url_for('static', filename='img/logo-main.png', _external=True) }}",
+        "founder": {
+          "@type": "Person",
+          "name": "Piotr Ankiel"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ site_url }}/#website",
+        "name": "Ankiel Studio",
+        "url": "{{ site_url }}/",
+        "publisher": {
+          "@id": "{{ site_url }}/#organization"
+        },
+        "inLanguage": ["en", "pl"]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "{{ site_url }}/#service",
+        "name": "Ankiel Studio",
+        "url": "{{ site_url }}/",
+        "image": "{{ url_for('static', filename='img/logo-main.png', _external=True) }}",
+        "description": "{{ seo.description if seo is defined else 'Ankiel Studio designs and builds modern websites, landing pages, dashboards, and custom digital solutions for businesses.' }}",
+        "areaServed": ["Poland", "Europe", "United States"],
+        "serviceType": ["Premium web design", "Landing pages", "Flask web development", "Dashboard development"]
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" data-header>
     <div class="container navbar">
-      <a href="#" class="brand">
+      <a href="{{ url_for('localized_home', lang=current_lang) }}" class="brand" aria-label="Ankiel Studio home">
         <img
           src="{{ url_for('static', filename='img/logo-badge.png') }}"
           alt="Ankiel Studio badge"
@@ -76,17 +105,17 @@
         <span class="brand-text">ANKIEL STUDIO</span>
       </a>
 
-      <nav class="nav-menu">
-        <a href="#about">{{ _("About") }}</a>
-        <a href="#services">{{ _("Services") }}</a>
-        <a href="#process">{{ _("Process") }}</a>
-        <a href="#portfolio">{{ _("Portfolio") }}</a>
-        <a href="#pricing">{{ _("Pricing") }}</a>
-        <a href="#contact" class="nav-cta">{{ _("Contact") }}</a>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#studio">{{ _("Studio") }}</a>
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#services">{{ _("Services") }}</a>
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#process">{{ _("Process") }}</a>
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#portfolio">{{ _("Work") }}</a>
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#pricing">{{ _("Pricing") }}</a>
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#top" class="nav-cta">{{ _("Start") }}</a>
       </nav>
 
       <div class="nav-right">
-        <div class="lang-switcher">
+        <div class="lang-switcher" aria-label="Language selector">
           <form action="{{ url_for('set_language', lang='en') }}" method="POST">
             <button
               type="submit"
@@ -106,7 +135,7 @@
           </form>
         </div>
 
-        <button class="menu-toggle" aria-label="{{ _('Open menu') }}">
+        <button class="menu-toggle" type="button" aria-label="{{ _('Open menu') }}" aria-expanded="false">
           <span></span>
           <span></span>
         </button>
@@ -115,483 +144,365 @@
   </header>
 
   <main>
-    <h1 class="sr-only">Ankiel Studio - web design, digital solutions and modern business websites</h1>
+    <div class="page-ambient" aria-hidden="true">
+      <span class="ambient-orb ambient-orb-one"></span>
+      <span class="ambient-orb ambient-orb-two"></span>
+      <span class="ambient-orb ambient-orb-three"></span>
+    </div>
 
-    <section class="hero hero-pro">
-      <div class="hero-bg-orb hero-bg-orb-one"></div>
-      <div class="hero-bg-orb hero-bg-orb-two"></div>
-      <div class="hero-pattern"></div>
+    <h1 class="sr-only">{{ _("Ankiel Studio - premium interactive websites and digital solutions") }}</h1>
 
-      <div class="container hero-grid hero-grid-pro">
-        <div class="hero-content reveal">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            {{ _("Premium web design and digital solutions for modern businesses") }}
+    <section class="hero" id="top" data-dark-section>
+      <canvas class="webgl-stage" id="webgl-stage" aria-hidden="true"></canvas>
+      <div class="webgl-fallback" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-gridline" aria-hidden="true"></div>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow reveal reveal-delay-1">
+            <span class="signal-dot"></span>
+            {{ _("Interactive web studio for premium digital presence") }}
           </div>
 
-          <h1 class="hero-title">
-            {{ _("Modern websites and digital tools that help businesses look premium, build trust, and work smarter.") }}
-          </h1>
+          <h2 class="hero-title" aria-label="{{ _('Websites that move, react and sell.') }}">
+            <span class="title-line reveal-title">{{ _("Websites that") }}</span>
+            <span class="title-line reveal-title">{{ _("move, react") }}</span>
+            <span class="title-line reveal-title title-accent">{{ _("and sell.") }}</span>
+          </h2>
 
-          <p class="hero-text hero-text-pro">
-            {{ _("I design and build clean, strategic websites, landing pages, and custom business solutions for companies, founders, and personal brands that want a stronger online presence and better digital support.") }}
+          <p class="hero-subtitle reveal reveal-delay-2">
+            {{ _("Premium interactive websites for ambitious brands.") }}
           </p>
 
-          <div class="hero-trust">
-            <span>Flask • Data Tools • Modern Web</span>
-          </div>
-
-          <div class="hero-actions">
-            <a href="#portfolio" class="btn btn-primary">{{ _("View portfolio") }}</a>
-            <a href="#contact" class="btn btn-secondary">{{ _("Start a project") }}</a>
-          </div>
-
-          <div class="hero-proof">
-            <div class="hero-proof-item">
-              <strong>{{ _("USA + Europe") }}</strong>
-              <span>{{ _("Global freelance services") }}</span>
-            </div>
-            <div class="hero-proof-item">
-              <strong>{{ _("Fast delivery") }}</strong>
-              <span>{{ _("Clear process & communication") }}</span>
-            </div>
-            <div class="hero-proof-item">
-              <strong>{{ _("Custom pricing") }}</strong>
-              <span>{{ _("Custom quotes available") }}</span>
-            </div>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a href="#contact" class="btn btn-primary magnetic">{{ _("Get a website demo") }}</a>
+            <a href="#services" class="btn btn-ghost magnetic">{{ _("View services") }}</a>
           </div>
         </div>
 
-        <div class="hero-visual hero-visual-pro reveal">
-          <div class="hero-showcase">
-            <div class="showcase-window">
-              <div class="showcase-topbar">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
+        <aside class="hero-interface reveal reveal-delay-4" data-tilt-card>
+          <div class="interface-top">
+            <span></span>
+            <span></span>
+            <span></span>
+            <p>{{ _("live experience system") }}</p>
+          </div>
 
-              <div class="showcase-body">
-                <div class="showcase-brand-row">
-                  <img
-                    src="{{ url_for('static', filename='img/logo-main.png') }}"
-                    alt="Ankiel Studio logo"
-                    class="showcase-logo"
-                  >
-                </div>
-
-                <div class="showcase-copy">
-                  <p class="showcase-label">ANKIEL STUDIO</p>
-                  <h3>{{ _("Web design that feels modern, sharp and trustworthy.") }}</h3>
-                  <p>
-                    {{ _("Modern websites and tailored digital tools for businesses that want a cleaner, stronger online presence.") }}
-                  </p>
-                </div>
-
-                <div class="showcase-metrics">
-                  <div class="metric-card">
-                    <span class="metric-kicker">01</span>
-                    <strong>{{ _("Premium visuals") }}</strong>
-                    <p>{{ _("Modern layouts with stronger first impression.") }}</p>
-                  </div>
-                  <div class="metric-card">
-                    <span class="metric-kicker">02</span>
-                    <strong>{{ _("Business support") }}</strong>
-                    <p>{{ _("Websites, dashboards, and custom tools built around real needs.") }}</p>
-                  </div>
-                </div>
-              </div>
+          <div class="interface-screen">
+            <div class="motion-orbit">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-
-            <div class="floating-card floating-card-one">
-              <span>{{ _("Startup-level design") }}</span>
-            </div>
-
-            <div class="floating-card floating-card-two">
-              <span>{{ _("Built to support growth") }}</span>
+            <div class="interface-core">
+              <img
+                src="{{ url_for('static', filename='img/logo-badge.png') }}"
+                alt=""
+                loading="lazy"
+              >
             </div>
           </div>
+
+          <div class="interface-metrics">
+            <div>
+              <span>01</span>
+              <strong>{{ _("Motion-led UI") }}</strong>
+            </div>
+            <div>
+              <span>02</span>
+              <strong>{{ _("Conversion focus") }}</strong>
+            </div>
+            <div>
+              <span>03</span>
+              <strong>{{ _("Fast Flask build") }}</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="hero-scroll">
+        <span>{{ _("Scroll") }}</span>
+        <i></i>
+      </div>
+    </section>
+
+    <section class="studio-strip" id="studio">
+      <div class="container studio-strip-inner">
+        <p class="mono-label reveal">{{ _("The studio") }}</p>
+        <div class="studio-statement reveal">
+          {{ _("Ankiel Studio builds websites that feel intentional from the first pixel: cinematic entry, sharp positioning, responsive UX, and lightweight technology that is easy to deploy.") }}
         </div>
       </div>
     </section>
 
-    <section class="section section-light" id="about">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-kicker">{{ _("About") }}</span>
-          <h2>{{ _("Websites and digital tools designed to make your business look stronger, clearer, and more valuable.") }}</h2>
-          <p>
-            {{ _("Ankiel Studio creates modern websites and tailored digital solutions for businesses that want a better online presence, more credibility, and smarter ways to present, manage, or understand their work.") }}
-          </p>
-        </div>
-
-        <div class="about-grid about-grid-pro">
-          <div class="about-card about-card-main reveal">
-            <div class="about-card-icon">A</div>
-            <h3>{{ _("Modern design with business purpose") }}</h3>
-            <p>
-              {{ _("Every project is built with a clear goal: make your brand look premium, communicate value fast, and support real business results through design, structure, and useful digital functionality.") }}
-            </p>
-          </div>
-
-          <div class="about-card reveal">
-            <h4>{{ _("Clean UI") }}</h4>
-            <p>{{ _("Minimal, modern layouts inspired by the best startup and SaaS brands.") }}</p>
-          </div>
-
-          <div class="about-card reveal">
-            <h4>{{ _("Responsive build") }}</h4>
-            <p>{{ _("Your website or tool will look sharp on desktop, tablet, and mobile.") }}</p>
-          </div>
-
-          <div class="about-card reveal">
-            <h4>{{ _("Data-aware solutions") }}</h4>
-            <p>{{ _("Beyond websites, I can build dashboards, reporting tools, and data-focused solutions for business workflows.") }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
+    <section class="section capability-section" id="services">
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">{{ _("Services") }}</span>
-          <h2>{{ _("Digital services tailored to modern brands and growing businesses") }}</h2>
+          <h2>{{ _("Digital experiences with atmosphere, speed, and business intent.") }}</h2>
           <p>
-            {{ _("From simple landing pages to custom business tools, each project is designed to look premium and support real business goals.") }}
+            {{ _("Every service is shaped around one goal: make the brand feel more valuable while keeping the website clear, fast, and practical.") }}
           </p>
         </div>
 
-        <div class="services-grid services-grid-pro">
-          <article class="service-card reveal">
-            <div class="service-icon">01</div>
-            <h3>{{ _("Business websites") }}</h3>
-            <p>{{ _("Professional websites for companies that need trust, clarity, and a modern digital presence.") }}</p>
+        <div class="services-grid">
+          <article class="service-card service-card-large reveal" data-tilt-card>
+            <span class="service-index">01</span>
+            <h3>{{ _("Premium websites") }}</h3>
+            <p>{{ _("Cinematic homepages, multi-section business sites, founder pages, and service websites built with custom visual rhythm instead of template blocks.") }}</p>
           </article>
 
-          <article class="service-card reveal">
-            <div class="service-icon">02</div>
-            <h3>{{ _("Landing pages") }}</h3>
-            <p>{{ _("Focused pages designed to promote one service, one offer, or one clear conversion goal.") }}</p>
+          <article class="service-card reveal" data-tilt-card>
+            <span class="service-index">02</span>
+            <h3>{{ _("Interactive landing pages") }}</h3>
+            <p>{{ _("Campaign pages with clear story flow, animated CTAs, scroll reveals, and conversion-focused structure.") }}</p>
           </article>
 
-          <article class="service-card reveal">
-            <div class="service-icon">03</div>
-            <h3>{{ _("Portfolio websites") }}</h3>
-            <p>{{ _("Elegant personal websites for freelancers, creators, and specialists.") }}</p>
+          <article class="service-card reveal" data-tilt-card>
+            <span class="service-index">03</span>
+            <h3>{{ _("UI refresh") }}</h3>
+            <p>{{ _("A visual upgrade for sites that work technically but no longer feel credible, premium, or current.") }}</p>
           </article>
 
-          <article class="service-card reveal">
-            <div class="service-icon">04</div>
-            <h3>{{ _("UI refresh / redesign") }}</h3>
-            <p>{{ _("A cleaner, more premium visual direction for outdated or weak-looking websites.") }}</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">05</div>
-            <h3>{{ _("Data analysis & reporting") }}</h3>
-            <p>{{ _("Data-focused solutions that help businesses organize information, track performance, and turn raw data into clear insights.") }}</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">06</div>
-            <h3>{{ _("Custom business tools") }}</h3>
-            <p>{{ _("Tailored web-based tools for dashboards, internal systems, process support, and data-driven workflows.") }}</p>
+          <article class="service-card reveal" data-tilt-card>
+            <span class="service-index">04</span>
+            <h3>{{ _("Dashboards and tools") }}</h3>
+            <p>{{ _("Data-aware Flask tools, dashboards, reporting views, and internal interfaces for businesses that need more than a brochure page.") }}</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-tint" id="process">
+    <section class="section cinematic-band" data-dark-section>
+      <div class="container cinematic-grid">
+        <div class="cinematic-copy reveal">
+          <span class="section-kicker section-kicker-dark">{{ _("Experience layer") }}</span>
+          <h2>{{ _("Motion is used as signal, not decoration.") }}</h2>
+        </div>
+        <div class="cinematic-points">
+          <div class="cinematic-point reveal">
+            <span>{{ _("Depth") }}</span>
+            <p>{{ _("Subtle parallax, glass panels, and layered backgrounds make the interface feel alive without slowing it down.") }}</p>
+          </div>
+          <div class="cinematic-point reveal">
+            <span>{{ _("Clarity") }}</span>
+            <p>{{ _("Large typography, controlled spacing, and focused sections keep the experience premium and easy to scan.") }}</p>
+          </div>
+          <div class="cinematic-point reveal">
+            <span>{{ _("Performance") }}</span>
+            <p>{{ _("WebGL is progressive, mobile-aware, and backed by a CSS fallback when the device should stay lighter.") }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="process">
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">{{ _("Process") }}</span>
-          <h2>{{ _("A clear process that keeps the project simple and professional.") }}</h2>
-          <p>
-            {{ _("You always know what happens next, what I’m working on, and how we move from idea to launch.") }}
-          </p>
+          <h2>{{ _("A direct path from rough idea to polished launch.") }}</h2>
+          <p>{{ _("The process is structured, but the visual direction stays custom to your brand and offer.") }}</p>
         </div>
 
-        <div class="process-grid">
-          <article class="process-card reveal">
-            <span class="process-number">01</span>
-            <h3>{{ _("Discovery") }}</h3>
-            <p>{{ _("We define your goals, audience, offer, and the role your website or digital tool should play in the business.") }}</p>
+        <div class="process-timeline">
+          <article class="process-step reveal">
+            <span>01</span>
+            <h3>{{ _("Signal") }}</h3>
+            <p>{{ _("We define the offer, audience, desired perception, and the action the website should drive.") }}</p>
           </article>
 
-          <article class="process-card reveal">
-            <span class="process-number">02</span>
+          <article class="process-step reveal">
+            <span>02</span>
             <h3>{{ _("Direction") }}</h3>
-            <p>{{ _("I shape the layout, structure, user flow, and visual direction so the project feels premium and clear.") }}</p>
+            <p>{{ _("I shape the page architecture, visual language, interaction mood, and content hierarchy.") }}</p>
           </article>
 
-          <article class="process-card reveal">
-            <span class="process-number">03</span>
+          <article class="process-step reveal">
+            <span>03</span>
             <h3>{{ _("Build") }}</h3>
-            <p>{{ _("The project gets developed into a fast, responsive, polished experience or a practical business tool built around your needs.") }}</p>
+            <p>{{ _("The design becomes a responsive Flask/Jinja experience with careful CSS, motion, and clean static assets.") }}</p>
           </article>
 
-          <article class="process-card reveal">
-            <span class="process-number">04</span>
+          <article class="process-step reveal">
+            <span>04</span>
             <h3>{{ _("Launch") }}</h3>
-            <p>{{ _("After review and refinements, the project goes live or gets delivered ready to support your business.") }}</p>
+            <p>{{ _("We refine, test, and ship a Render-compatible website ready for real visitors.") }}</p>
           </article>
         </div>
       </div>
     </section>
 
-<section class="section section-light" id="portfolio">
-  <div class="container">
-    <div class="section-heading reveal">
-      <span class="section-kicker">{{ _("Portfolio") }}</span>
-      <h2>{{ _("Selected website projects") }}</h2>
-      <p>
-        {{ _("A selection of website projects, concepts, and digital work created for businesses, service brands, and personal projects.") }}
-      </p>
-    </div>
-
-    <div class="portfolio-grid portfolio-grid-pro">
-      <article class="portfolio-card portfolio-card-pro portfolio-card-live reveal">
-        <div class="portfolio-preview">
-          <img
-            src="{{ url_for('static', filename='img/masarniajastew-preview.png') }}"
-            alt="Masarnia Jastew website preview"
-          >
-        </div>
-
-        <div class="portfolio-body">
-          <p class="portfolio-label portfolio-label-live">
-            {{ _("Live client project") }}
-          </p>
-          <h3>{{ _("Masarnia Jastew") }}</h3>
-          <p>{{ _("A modern business website created for a traditional butcher brand. The project focused on clear presentation, stronger trust, mobile responsiveness, and a clean contact experience.") }}</p>
-
-          <ul class="portfolio-meta">
-            <li>{{ _("Scope: website design, frontend development, responsive layout, contact form, basic SEO") }}</li>
-          </ul>
-
-          <a href="https://masarniajastew.pl/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            {{ _("View live website") }}
-          </a>
-        </div>
-      </article>
-
-      <article class="portfolio-card portfolio-card-pro reveal">
-        <div class="portfolio-preview portfolio-preview-two">
-          <div class="preview-browser">
-            <div class="preview-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="preview-layout preview-layout-two"></div>
-          </div>
-        </div>
-        <div class="portfolio-body">
-          <p class="portfolio-label">{{ _("Concept project") }}</p>
-          <h3>{{ _("High-conversion landing page") }}</h3>
-          <p>{{ _("A focused landing page built for marketing campaigns, service promotion, and stronger call-to-action performance.") }}</p>
-        </div>
-      </article>
-
-      <article class="portfolio-card portfolio-card-pro reveal">
-        <div class="portfolio-preview portfolio-preview-three">
-          <div class="preview-browser">
-            <div class="preview-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="preview-layout preview-layout-three"></div>
-          </div>
-        </div>
-        <div class="portfolio-body">
-          <p class="portfolio-label">{{ _("Concept project") }}</p>
-          <h3>{{ _("Minimal personal brand website") }}</h3>
-          <p>{{ _("A modern website for freelancers, creators, and consultants who want a clean digital presence and stronger authority online.") }}</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-    <section class="section section-darkband">
+    <section class="section work-section" id="portfolio">
       <div class="container">
-        <div class="value-strip reveal">
-          <div class="value-strip-copy">
-            <span class="section-kicker">{{ _("Why clients choose this style") }}</span>
-            <h2>{{ _("A modern website or digital tool does more than look good — it changes how your business is perceived and how it works.") }}</h2>
-          </div>
+        <div class="section-heading reveal">
+          <span class="section-kicker">{{ _("Selected work") }}</span>
+          <h2>{{ _("Built for brands that need trust at first glance.") }}</h2>
+          <p>{{ _("A mix of live work and concept directions showing the type of digital presence Ankiel Studio creates.") }}</p>
+        </div>
 
-          <div class="value-strip-points">
-            <div class="value-point">
-              <strong>{{ _("Stronger credibility") }}</strong>
-              <span>{{ _("A better first impression for new visitors and clients.") }}</span>
+        <div class="work-grid">
+          <article class="work-card work-card-live reveal" data-tilt-card>
+            <div class="work-preview">
+              <img
+                src="{{ url_for('static', filename='img/masarniajastew-preview.png') }}"
+                alt="Masarnia Jastew website preview"
+                loading="lazy"
+              >
             </div>
-            <div class="value-point">
-              <strong>{{ _("Cleaner operations") }}</strong>
-              <span>{{ _("Useful tools and dashboards can simplify reporting and internal workflows.") }}</span>
+            <div class="work-body">
+              <p class="work-label">{{ _("Live client project") }}</p>
+              <h3>{{ _("Masarnia Jastew") }}</h3>
+              <p>{{ _("A modern business website for a traditional butcher brand, focused on credibility, mobile clarity, product presentation, and contact flow.") }}</p>
+              <a href="https://masarniajastew.pl/" target="_blank" rel="noopener noreferrer" class="text-link">
+                {{ _("View live website") }}
+              </a>
             </div>
-            <div class="value-point">
-              <strong>{{ _("Higher perceived value") }}</strong>
-              <span>{{ _("Premium design and smart execution support premium positioning.") }}</span>
+          </article>
+
+          <article class="work-card concept-card reveal" data-tilt-card>
+            <div class="concept-preview concept-preview-one">
+              <div class="concept-browser">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div></div>
+              </div>
             </div>
-          </div>
+            <div class="work-body">
+              <p class="work-label">{{ _("Concept direction") }}</p>
+              <h3>{{ _("Conversion launch page") }}</h3>
+              <p>{{ _("Sharp narrative, animated proof points, and a high-focus CTA path for service campaigns.") }}</p>
+            </div>
+          </article>
+
+          <article class="work-card concept-card reveal" data-tilt-card>
+            <div class="concept-preview concept-preview-two">
+              <div class="concept-browser">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div></div>
+              </div>
+            </div>
+            <div class="work-body">
+              <p class="work-label">{{ _("Concept direction") }}</p>
+              <h3>{{ _("Founder studio profile") }}</h3>
+              <p>{{ _("Minimal but memorable personal brand presence with editorial rhythm and premium spacing.") }}</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="pricing">
+    <section class="section pricing-section" id="pricing">
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">{{ _("Pricing") }}</span>
-          <h2>{{ _("Clear pricing for businesses that want quality, speed, and modern design") }}</h2>
-          <p>
-            {{ _("Clear starting packages for standard projects, with custom quotes available depending on project scope, features, and complexity.") }}
-          </p>
+          <h2>{{ _("Clear starting points, custom execution.") }}</h2>
+          <p>{{ _("Packages are starting frames. Final pricing depends on scope, motion depth, sections, integrations, and custom functionality.") }}</p>
         </div>
 
-        <div class="pricing-grid pricing-grid-pro">
-          <article class="pricing-card reveal">
+        <div class="pricing-grid">
+          <article class="pricing-card reveal" data-tilt-card>
             <p class="pricing-plan">{{ _("Starter") }}</p>
             <h3>$900</h3>
             <ul class="pricing-list">
-              <li>{{ _("1 modern landing page") }}</li>
+              <li>{{ _("One premium landing page") }}</li>
               <li>{{ _("Responsive layout") }}</li>
-              <li>{{ _("Clean visual direction") }}</li>
-              <li>{{ _("Basic sections and contact CTA") }}</li>
-              <li>{{ _("Basic on-page SEO setup") }}</li>
+              <li>{{ _("Core SEO setup") }}</li>
+              <li>{{ _("Contact CTA") }}</li>
             </ul>
-            <a href="#contact" class="btn btn-secondary">{{ _("Choose Starter") }}</a>
+            <a href="#contact" class="btn btn-soft">{{ _("Choose Starter") }}</a>
           </article>
 
-          <article class="pricing-card pricing-card-featured reveal">
-            <div class="pricing-badge">{{ _("Most popular") }}</div>
+          <article class="pricing-card pricing-card-featured reveal" data-tilt-card>
+            <p class="pricing-badge">{{ _("Most selected") }}</p>
             <p class="pricing-plan">{{ _("Business") }}</p>
             <h3>$1600</h3>
             <ul class="pricing-list">
-              <li>{{ _("Multi-section business website") }}</li>
-              <li>{{ _("Premium modern design") }}</li>
-              <li>{{ _("Stronger page structure and UX") }}</li>
-              <li>{{ _("SEO-ready page structure") }}</li>
-              <li>{{ _("Best choice for most clients") }}</li>
+              <li>{{ _("Multi-section website") }}</li>
+              <li>{{ _("Premium visual direction") }}</li>
+              <li>{{ _("Scroll and reveal motion") }}</li>
+              <li>{{ _("SEO-ready structure") }}</li>
             </ul>
             <a href="#contact" class="btn btn-primary">{{ _("Choose Business") }}</a>
           </article>
 
-          <article class="pricing-card reveal">
+          <article class="pricing-card reveal" data-tilt-card>
             <p class="pricing-plan">{{ _("Premium") }}</p>
             <h3>$2600</h3>
             <ul class="pricing-list">
               <li>{{ _("Advanced custom website") }}</li>
-              <li>{{ _("High-end visual polish") }}</li>
-              <li>{{ _("Advanced page structure for SEO") }}</li>
-              <li>{{ _("More sections and complexity") }}</li>
+              <li>{{ _("Cinematic interaction layer") }}</li>
+              <li>{{ _("More sections and polish") }}</li>
               <li>{{ _("Priority execution") }}</li>
             </ul>
-            <a href="#contact" class="btn btn-secondary">{{ _("Choose Premium") }}</a>
+            <a href="#contact" class="btn btn-soft">{{ _("Choose Premium") }}</a>
           </article>
         </div>
+      </div>
+    </section>
 
-        <div class="pricing-includes reveal">
+    <section class="section contact-section" id="contact" data-dark-section>
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="section-kicker section-kicker-dark">{{ _("Contact") }}</span>
+          <h2>{{ _("Want a website that feels like your brand has arrived?") }}</h2>
           <p>
-            {{ _("All projects include responsive design, performance optimization, and a clean foundation for modern SEO.") }}
+            {{ _("Send a short brief. I will reply with the recommended direction, scope, and next step for a premium interactive website or digital tool.") }}
           </p>
-        </div>
 
-        <p class="pricing-note reveal">
-          {{ _("Custom quotes are available for smaller projects and more advanced business websites. Final pricing depends on scope, number of sections, and custom functionality.") }}
-        </p>
-      </div>
-    </section>
-
-    <section class="section section-light">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-kicker">{{ _("Next steps") }}</span>
-          <h2>{{ _("Simple process after your inquiry") }}</h2>
-          <p>{{ _("No complicated sales process — just a few clear steps to move your project forward.") }}</p>
-        </div>
-
-        <div class="process-grid">
-          <article class="process-card reveal">
-            <span class="process-number">01</span>
-            <h3>{{ _("Send your inquiry") }}</h3>
-            <p>{{ _("Tell me a bit about your business, project type, and what kind of website or tool you need.") }}</p>
-          </article>
-
-          <article class="process-card reveal">
-            <span class="process-number">02</span>
-            <h3>{{ _("Get a reply") }}</h3>
-            <p>{{ _("I’ll get back to you with the next steps, a recommended direction, and an initial quote if the scope is clear.") }}</p>
-          </article>
-
-          <article class="process-card reveal">
-            <span class="process-number">03</span>
-            <h3>{{ _("Start the project") }}</h3>
-            <p>{{ _("Once everything is aligned, we move into execution with a clear scope, timeline, and communication process.") }}</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark contact-section-pro" id="contact">
-      <div class="container">
-        <div class="contact-grid contact-grid-pro">
-          <div class="contact-copy reveal">
-            <span class="section-kicker section-kicker-dark">{{ _("Contact") }}</span>
-            <h2>{{ _("Let’s create a website or digital solution that gives your business a stronger online presence.") }}</h2>
-            <p>
-              {{ _("Send a message with a few details about your business or project, and I’ll get back to you with the next steps.") }}
-            </p>
-
-            <div class="contact-points">
-              <div class="contact-point">
-                <strong>{{ _("Fast reply") }}</strong>
-                <span>{{ _("Clear communication and simple process") }}</span>
-              </div>
-              <div class="contact-point">
-                <strong>{{ _("Global clients") }}</strong>
-                <span>{{ _("Working with clients across Europe, the USA, and beyond") }}</span>
-              </div>
+          <div class="contact-signals">
+            <div>
+              <strong>{{ _("Global-ready") }}</strong>
+              <span>{{ _("Europe, USA, and remote-first collaboration") }}</span>
+            </div>
+            <div>
+              <strong>{{ _("Render-friendly") }}</strong>
+              <span>{{ _("Flask/Jinja/static frontend kept clean for deployment") }}</span>
             </div>
           </div>
+        </div>
 
-          <div class="contact-card reveal">
-            {% with messages = get_flashed_messages(with_categories=true) %}
-              {% if messages %}
-                <div class="flash-wrap">
-                  {% for category, message in messages %}
-                    <div class="flash-message flash-{{ category }}">
-                      {{ message }}
-                    </div>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            {% endwith %}
-
-            <form class="contact-form" action="{{ url_for('contact') }}" method="POST">
-              <div class="form-row">
-                <label for="name">{{ _("Name") }}</label>
-                <input type="text" id="name" name="name" placeholder="{{ _('Your name') }}">
+        <div class="contact-card reveal" data-tilt-card>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              <div class="flash-wrap">
+                {% for category, message in messages %}
+                  <div class="flash-message flash-{{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
               </div>
+            {% endif %}
+          {% endwith %}
 
-              <div class="form-row">
-                <label for="email">{{ _("Email") }}</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com">
-              </div>
+          <form class="contact-form" action="{{ url_for('contact') }}" method="POST">
+            <div class="form-row">
+              <label for="name">{{ _("Name") }}</label>
+              <input type="text" id="name" name="name" placeholder="{{ _('Your name') }}">
+            </div>
 
-              <div class="form-row">
-                <label for="project">{{ _("Project type") }}</label>
-                <input type="text" id="project" name="project" placeholder="{{ _('Business website / landing page / dashboard / custom tool') }}">
-              </div>
+            <div class="form-row">
+              <label for="email">{{ _("Email") }}</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com">
+            </div>
 
-              <div class="form-row">
-                <label for="message">{{ _("Message") }}</label>
-                <textarea id="message" name="message" rows="5" placeholder="{{ _('Tell me a bit about your project') }}"></textarea>
-              </div>
+            <div class="form-row">
+              <label for="project">{{ _("Project type") }}</label>
+              <input type="text" id="project" name="project" placeholder="{{ _('Premium website / landing page / dashboard / custom tool') }}">
+            </div>
 
-              <button type="submit" class="btn btn-primary contact-submit">
-                {{ _("Send inquiry") }}
-              </button>
-            </form>
-          </div>
+            <div class="form-row">
+              <label for="message">{{ _("Message") }}</label>
+              <textarea id="message" name="message" rows="5" placeholder="{{ _('Tell me a bit about your project') }}"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary contact-submit">
+              {{ _("Send inquiry") }}
+            </button>
+          </form>
         </div>
       </div>
     </section>
@@ -600,13 +511,14 @@
       <div class="container footer-inner">
         <div>
           <p class="footer-brand">ANKIEL STUDIO</p>
-          <p class="footer-copy">{{ _("Modern websites, landing pages, and digital solutions for businesses and personal brands.") }}</p>
+          <p class="footer-copy">{{ _("Premium interactive websites and digital solutions for ambitious brands.") }}</p>
         </div>
 
         <div class="footer-links">
-          <a href="#about">{{ _("About") }}</a>
+          <a href="#studio">{{ _("Studio") }}</a>
           <a href="#services">{{ _("Services") }}</a>
           <a href="#process">{{ _("Process") }}</a>
+          <a href="#portfolio">{{ _("Work") }}</a>
           <a href="#pricing">{{ _("Pricing") }}</a>
           <a href="#contact">{{ _("Contact") }}</a>
         </div>
@@ -614,6 +526,7 @@
     </footer>
   </main>
 
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
 </body>
 </html>

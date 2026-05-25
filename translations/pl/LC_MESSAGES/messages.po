@@ -3,823 +3,438 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-13 11:53+0100\n"
-"PO-Revision-Date: 2026-03-13 00:07+0100\n"
+"POT-Creation-Date: 2026-05-25 21:24+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pl\n"
 "Language-Team: pl <LL@li.org>\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && "
-"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : "
+"2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app.py:99
+msgid "Premium Interactive Websites | Ankiel Studio"
+msgstr "Premium interaktywne strony internetowe | Ankiel Studio"
+
+msgid ""
+"Premium interactive websites, landing pages, dashboards, and digital tools for ambitious brands "
+"in Europe and the United States."
+msgstr ""
+"Premium interaktywne strony, landing page'e, dashboardy i narzędzia cyfrowe dla ambitnych marek w"
+" Europie i Stanach Zjednoczonych."
+
 msgid "Please fill in your name, email, and message."
 msgstr "Uzupełnij imię, email i wiadomość."
 
-#: app.py:122
 msgid "Thanks! Your inquiry has been sent successfully."
-msgstr "Dziękuję! Twoje zapytanie zostało pomyślnie wysłane."
+msgstr "Dziękuję! Twoje zapytanie zostało wysłane."
 
-#: app.py:126
 msgid "Email could not be sent right now. Please try again later."
 msgstr "Nie udało się teraz wysłać wiadomości. Spróbuj ponownie później."
 
-#: templates/index.html:7
-msgid ""
-"Ankiel Studio | Modern websites and digital solutions for growing "
-"businesses"
+msgid "Ankiel Studio | Modern websites and digital solutions for growing businesses"
 msgstr "Ankiel Studio | Nowoczesne strony i rozwiązania cyfrowe dla rozwijających się firm"
 
-#: templates/index.html:11
 msgid ""
-"Ankiel Studio designs and builds modern websites, landing pages, and "
-"custom digital solutions for businesses that want to grow."
+"Ankiel Studio designs and builds modern websites, landing pages, and custom digital solutions for"
+" businesses that want to grow."
 msgstr ""
-"Ankiel Studio projektuje i tworzy nowoczesne strony internetowe, landing page’e "
-"oraz dedykowane rozwiązania cyfrowe dla firm, które chcą się rozwijać."
+"Ankiel Studio projektuje i tworzy nowoczesne strony internetowe, landing page'e oraz dedykowane "
+"rozwiązania cyfrowe dla firm, które chcą się rozwijać."
 
-#: templates/index.html:79 templates/index.html:216 templates/index.html:554
-msgid "About"
-msgstr "O mnie"
+msgid "Ankiel Studio | Premium interactive websites"
+msgstr "Ankiel Studio | Premium interaktywne strony internetowe"
 
-#: templates/index.html:80 templates/index.html:253 templates/index.html:555
+msgid "Premium interactive websites, landing pages, and digital systems for ambitious brands."
+msgstr "Premium interaktywne strony, landing page'e i systemy cyfrowe dla ambitnych marek."
+
+msgid "Premium interactive websites for ambitious brands."
+msgstr "Premium interaktywne strony internetowe dla ambitnych marek."
+
+msgid "Studio"
+msgstr "Studio"
+
 msgid "Services"
 msgstr "Usługi"
 
-#: templates/index.html:81 templates/index.html:303 templates/index.html:556
 msgid "Process"
 msgstr "Proces"
 
-#: templates/index.html:82 templates/index.html:341
-msgid "Portfolio"
-msgstr "Portfolio"
+msgid "Work"
+msgstr "Realizacje"
 
-#: templates/index.html:83 templates/index.html:429 templates/index.html:557
 msgid "Pricing"
 msgstr "Cennik"
 
-#: templates/index.html:84 templates/index.html:485 templates/index.html:558
-msgid "Contact"
-msgstr "Kontakt"
+msgid "Start"
+msgstr "Start"
 
-#: templates/index.html:108
 msgid "Open menu"
 msgstr "Otwórz menu"
 
-#: templates/index.html:128
-msgid "Premium web design and digital solutions for modern businesses"
-msgstr "Premium web design i rozwiązania cyfrowe dla nowoczesnych firm"
+msgid "Ankiel Studio - premium interactive websites and digital solutions"
+msgstr "Ankiel Studio - premium interaktywne strony i rozwiązania cyfrowe"
 
-#: templates/index.html:132
+msgid "Interactive web studio for premium digital presence"
+msgstr "Interaktywne studio webowe dla marek premium"
+
+msgid "Websites that move, react and sell."
+msgstr "Strony, które poruszają się, reagują i sprzedają."
+
+msgid "Websites that"
+msgstr "Strony, które"
+
+msgid "move, react"
+msgstr "poruszają się, reagują"
+
+msgid "and sell."
+msgstr "i sprzedają."
+
+msgid "Get a website demo"
+msgstr "Zobacz demo strony"
+
+msgid "View services"
+msgstr "Zobacz usługi"
+
+msgid "live experience system"
+msgstr "system żywego doświadczenia"
+
+msgid "Motion-led UI"
+msgstr "UI oparte na ruchu"
+
+msgid "Conversion focus"
+msgstr "Nacisk na konwersję"
+
+msgid "Fast Flask build"
+msgstr "Szybki build Flask"
+
+msgid "Scroll"
+msgstr "Przewiń"
+
+msgid "The studio"
+msgstr "Studio"
+
 msgid ""
-"Modern websites and digital tools that help businesses look premium, "
-"build trust, and work smarter."
+"Ankiel Studio builds websites that feel intentional from the first pixel: cinematic entry, sharp "
+"positioning, responsive UX, and lightweight technology that is easy to deploy."
 msgstr ""
-"Nowoczesne strony i narzędzia cyfrowe dla firm, które chcą budować zaufanie "
-"i działać skuteczniej."
+"Ankiel Studio tworzy strony, które od pierwszego piksela wyglądają świadomie: cinematic wejście, "
+"wyraziste pozycjonowanie, responsywny UX i lekka technologia gotowa do wdrożenia."
 
-#: templates/index.html:136
+msgid "Digital experiences with atmosphere, speed, and business intent."
+msgstr "Cyfrowe doświadczenia z atmosferą, szybkością i biznesowym celem."
+
 msgid ""
-"I design and build clean, strategic websites, landing pages, and custom "
-"business solutions for companies, founders, and personal brands that want"
-" a stronger online presence and better digital support."
+"Every service is shaped around one goal: make the brand feel more valuable while keeping the "
+"website clear, fast, and practical."
 msgstr ""
-"Projektuję i tworzę estetyczne, strategiczne strony internetowe, landing page’e "
-"oraz dedykowane rozwiązania biznesowe dla firm, founderów i marek osobistych, "
-"które chcą mieć silniejszą obecność online i lepsze wsparcie cyfrowe."
+"Każda usługa ma jeden cel: sprawić, by marka była postrzegana jako bardziej wartościowa, a strona"
+" pozostała czytelna, szybka i praktyczna."
 
-#: templates/index.html:140
-msgid "View portfolio"
-msgstr "Zobacz portfolio"
+msgid "Premium websites"
+msgstr "Strony premium"
 
-#: templates/index.html:141
-msgid "Start a project"
-msgstr "Rozpocznij projekt"
-
-#: templates/index.html:146
-msgid "USA + Europe"
-msgstr "USA + Europa"
-
-#: templates/index.html:147
-msgid "Global freelance services"
-msgstr "Usługi freelancerskie dla klientów z całego świata"
-
-#: templates/index.html:150
-msgid "Fast delivery"
-msgstr "Szybka realizacja"
-
-#: templates/index.html:151
-msgid "Clear process & communication"
-msgstr "Jasny proces i komunikacja"
-
-#: templates/index.html:154
-msgid "Custom pricing"
-msgstr "Indywidualna wycena"
-
-#: templates/index.html:155
-msgid "Custom quotes available"
-msgstr "Dostępne indywidualne wyceny"
-
-#: templates/index.html:180
-msgid "Web design that feels modern, sharp and trustworthy."
-msgstr "Web design, który jest nowoczesny, wyrazisty i budzi zaufanie."
-
-#: templates/index.html:182
 msgid ""
-"Modern websites and tailored digital tools for businesses that want a "
-"cleaner, stronger online presence."
+"Cinematic homepages, multi-section business sites, founder pages, and service websites built with"
+" custom visual rhythm instead of template blocks."
 msgstr ""
-"Nowoczesne strony i dopasowane narzędzia cyfrowe dla firm, które chcą mieć "
-"czystszą i silniejszą obecność online."
+"Cinematic strony główne, wielosekcyjne strony firmowe, strony founderów i serwisów usługowych "
+"tworzone z własnym rytmem wizualnym zamiast bloków z szablonu."
 
-#: templates/index.html:189
-msgid "Premium visuals"
-msgstr "Premium wygląd"
+msgid "Interactive landing pages"
+msgstr "Interaktywne landing page'e"
 
-#: templates/index.html:190
-msgid "Modern layouts with stronger first impression."
-msgstr "Nowoczesne układy z mocniejszym pierwszym wrażeniem."
-
-#: templates/index.html:194
-msgid "Business support"
-msgstr "Wsparcie biznesu"
-
-#: templates/index.html:195
-msgid "Websites, dashboards, and custom tools built around real needs."
-msgstr "Strony, dashboardy i dedykowane narzędzia tworzone pod realne potrzeby."
-
-#: templates/index.html:202
-msgid "Startup-level design"
-msgstr "Design na poziomie startupów"
-
-#: templates/index.html:206
-msgid "Built to support growth"
-msgstr "Stworzone, by wspierać rozwój"
-
-#: templates/index.html:217
 msgid ""
-"Websites and digital tools designed to make your business look stronger, "
-"clearer, and more valuable."
+"Campaign pages with clear story flow, animated CTAs, scroll reveals, and conversion-focused "
+"structure."
 msgstr ""
-"Strony internetowe i narzędzia cyfrowe zaprojektowane tak, aby Twój biznes "
-"wyglądał mocniej, czytelniej i bardziej wartościowo."
+"Strony kampanijne z czytelną narracją, animowanymi CTA, revealami przy scrollu i strukturą "
+"nastawioną na konwersję."
 
-#: templates/index.html:219
+msgid "UI refresh"
+msgstr "Odświeżenie UI"
+
+msgid "A visual upgrade for sites that work technically but no longer feel credible, premium, or current."
+msgstr ""
+"Wizualny upgrade dla stron, które technicznie działają, ale nie wyglądają już wiarygodnie, "
+"premium ani aktualnie."
+
+msgid "Dashboards and tools"
+msgstr "Dashboardy i narzędzia"
+
 msgid ""
-"Ankiel Studio creates modern websites and tailored digital solutions for "
-"businesses that want a better online presence, more credibility, and "
-"smarter ways to present, manage, or understand their work."
+"Data-aware Flask tools, dashboards, reporting views, and internal interfaces for businesses that "
+"need more than a brochure page."
 msgstr ""
-"Ankiel Studio tworzy nowoczesne strony internetowe i dopasowane rozwiązania "
-"cyfrowe dla firm, które chcą mieć lepszą obecność online, większą wiarygodność "
-"oraz mądrzejsze sposoby prezentowania, zarządzania i analizowania swojej pracy."
+"Narzędzia Flask oparte na danych, dashboardy, widoki raportowe i interfejsy wewnętrzne dla firm, "
+"które potrzebują czegoś więcej niż strona wizytówka."
 
-#: templates/index.html:226
-msgid "Modern design with business purpose"
-msgstr "Nowoczesny design z biznesowym celem"
+msgid "Experience layer"
+msgstr "Warstwa doświadczenia"
 
-#: templates/index.html:228
+msgid "Motion is used as signal, not decoration."
+msgstr "Ruch jest sygnałem, nie dekoracją."
+
+msgid "Depth"
+msgstr "Głębia"
+
 msgid ""
-"Every project is built with a clear goal: make your brand look premium, "
-"communicate value fast, and support real business results through design,"
-" structure, and useful digital functionality."
+"Subtle parallax, glass panels, and layered backgrounds make the interface feel alive without "
+"slowing it down."
 msgstr ""
-"Każdy projekt powstaje z jasnym celem: sprawić, by Twoja marka wyglądała premium, "
-"szybko komunikowała swoją wartość i wspierała realne wyniki biznesowe poprzez "
-"design, strukturę i użyteczne funkcje cyfrowe."
+"Subtelny parallax, szklane panele i warstwowe tła sprawiają, że interfejs żyje bez spowalniania "
+"strony."
 
-#: templates/index.html:233
-msgid "Clean UI"
-msgstr "Czysty interfejs"
+msgid "Clarity"
+msgstr "Czytelność"
 
-#: templates/index.html:234
-msgid "Minimal, modern layouts inspired by the best startup and SaaS brands."
-msgstr ""
-"Minimalistyczne, nowoczesne układy inspirowane najlepszymi markami "
-"startupowymi i SaaS."
-
-#: templates/index.html:238
-msgid "Responsive build"
-msgstr "Responsywny projekt"
-
-#: templates/index.html:239
-msgid "Your website or tool will look sharp on desktop, tablet, and mobile."
-msgstr "Twoja strona lub narzędzie będzie wyglądać świetnie na komputerze, tablecie i telefonie."
-
-#: templates/index.html:243
-msgid "Data-aware solutions"
-msgstr "Rozwiązania oparte na danych"
-
-#: templates/index.html:244
 msgid ""
-"Beyond websites, I can build dashboards, reporting tools, and data-"
-"focused solutions for business workflows."
+"Large typography, controlled spacing, and focused sections keep the experience premium and easy "
+"to scan."
 msgstr ""
-"Poza stronami internetowymi mogę tworzyć dashboardy, narzędzia raportowe "
-"i rozwiązania oparte na danych dla procesów biznesowych."
+"Duża typografia, kontrolowane odstępy i skupione sekcje utrzymują premium feeling oraz łatwe "
+"skanowanie treści."
 
-#: templates/index.html:254
-msgid "Digital services tailored to modern brands and growing businesses"
-msgstr "Usługi cyfrowe dopasowane do nowoczesnych marek i rozwijających się firm"
+msgid "Performance"
+msgstr "Wydajność"
 
-#: templates/index.html:256
 msgid ""
-"From simple landing pages to custom business tools, each project is "
-"designed to look premium and support real business goals."
+"WebGL is progressive, mobile-aware, and backed by a CSS fallback when the device should stay "
+"lighter."
 msgstr ""
-"Od prostych landing page’y po dedykowane narzędzia biznesowe — każdy projekt "
-"jest tworzony tak, aby wyglądał premium i wspierał realne cele biznesowe."
+"WebGL działa progresywnie, uwzględnia mobile i ma fallback CSS, gdy urządzenie powinno zostać "
+"lżejsze."
 
-#: templates/index.html:263
-msgid "Business websites"
-msgstr "Strony firmowe"
+msgid "A direct path from rough idea to polished launch."
+msgstr "Prosta droga od surowego pomysłu do dopracowanego launchu."
 
-#: templates/index.html:264
-msgid ""
-"Professional websites for companies that need trust, clarity, and a "
-"modern digital presence."
-msgstr ""
-"Profesjonalne strony dla firm, które potrzebują zaufania, przejrzystości "
-"i nowoczesnej obecności online."
+msgid "The process is structured, but the visual direction stays custom to your brand and offer."
+msgstr "Proces jest uporządkowany, ale kierunek wizualny pozostaje dopasowany do Twojej marki i oferty."
 
-#: templates/index.html:269
-msgid "Landing pages"
-msgstr "Landing page"
+msgid "Signal"
+msgstr "Sygnał"
 
-#: templates/index.html:270
-msgid ""
-"Focused pages designed to promote one service, one offer, or one clear "
-"conversion goal."
-msgstr ""
-"Skoncentrowane strony zaprojektowane do promowania jednej usługi, jednej "
-"oferty lub jednego celu konwersji."
+msgid "We define the offer, audience, desired perception, and the action the website should drive."
+msgstr "Określamy ofertę, odbiorców, pożądane wrażenie i akcję, do której strona ma prowadzić."
 
-#: templates/index.html:275
-msgid "Portfolio websites"
-msgstr "Strony portfolio"
-
-#: templates/index.html:276
-msgid "Elegant personal websites for freelancers, creators, and specialists."
-msgstr "Eleganckie strony osobiste dla freelancerów, twórców i specjalistów."
-
-#: templates/index.html:281
-msgid "UI refresh / redesign"
-msgstr "Odświeżenie UI / redesign"
-
-#: templates/index.html:282
-msgid ""
-"A cleaner, more premium visual direction for outdated or weak-looking "
-"websites."
-msgstr ""
-"Czystszy i bardziej premium kierunek wizualny dla przestarzałych lub "
-"słabo wyglądających stron."
-
-#: templates/index.html:287
-msgid "Data analysis & reporting"
-msgstr "Analiza danych i raportowanie"
-
-#: templates/index.html:288
-msgid ""
-"Data-focused solutions that help businesses organize information, track "
-"performance, and turn raw data into clear insights."
-msgstr ""
-"Rozwiązania oparte na danych, które pomagają firmom porządkować informacje, "
-"śledzić wyniki i zamieniać surowe dane w czytelne wnioski."
-
-#: templates/index.html:293
-msgid "Custom business tools"
-msgstr "Dedykowane narzędzia biznesowe"
-
-#: templates/index.html:294
-msgid ""
-"Tailored web-based tools for dashboards, internal systems, process "
-"support, and data-driven workflows."
-msgstr ""
-"Dopasowane narzędzia webowe do dashboardów, systemów wewnętrznych, wsparcia "
-"procesów i workflow opartych na danych."
-
-#: templates/index.html:304
-msgid "A clear process that keeps the project simple and professional."
-msgstr "Jasny proces, który sprawia, że projekt jest prosty i profesjonalny."
-
-#: templates/index.html:306
-msgid ""
-"You always know what happens next, what I’m working on, and how we move "
-"from idea to launch."
-msgstr ""
-"Zawsze wiesz, co wydarzy się dalej, nad czym pracuję i jak przechodzimy "
-"od pomysłu do publikacji strony."
-
-#: templates/index.html:313
-msgid "Discovery"
-msgstr "Analiza"
-
-#: templates/index.html:314
-msgid ""
-"We define your goals, audience, offer, and the role your website or "
-"digital tool should play in the business."
-msgstr ""
-"Określamy Twoje cele, odbiorców, ofertę oraz rolę, jaką Twoja strona lub "
-"narzędzie cyfrowe ma pełnić w biznesie."
-
-#: templates/index.html:319
 msgid "Direction"
 msgstr "Kierunek"
 
-#: templates/index.html:320
-msgid ""
-"I shape the layout, structure, user flow, and visual direction so the "
-"project feels premium and clear."
-msgstr ""
-"Tworzę układ, strukturę, ścieżkę użytkownika i kierunek wizualny tak, aby "
-"projekt był czytelny i dawał premium odczucie."
+msgid "I shape the page architecture, visual language, interaction mood, and content hierarchy."
+msgstr "Projektuję architekturę strony, język wizualny, nastrój interakcji i hierarchię treści."
 
-#: templates/index.html:325
 msgid "Build"
 msgstr "Realizacja"
 
-#: templates/index.html:326
 msgid ""
-"The project gets developed into a fast, responsive, polished experience "
-"or a practical business tool built around your needs."
+"The design becomes a responsive Flask/Jinja experience with careful CSS, motion, and clean static"
+" assets."
 msgstr ""
-"Projekt jest rozwijany w szybkie, responsywne i dopracowane doświadczenie "
-"albo praktyczne narzędzie biznesowe zbudowane wokół Twoich potrzeb."
+"Design zamienia się w responsywne doświadczenie Flask/Jinja z dopracowanym CSS, ruchem i czystymi"
+" assetami statycznymi."
 
-#: templates/index.html:331
 msgid "Launch"
-msgstr "Publikacja"
+msgstr "Launch"
 
-#: templates/index.html:332
+msgid "We refine, test, and ship a Render-compatible website ready for real visitors."
+msgstr ""
+"Dopracowujemy, testujemy i wdrażamy stronę kompatybilną z Render, gotową na realnych "
+"odwiedzających."
+
+msgid "Selected work"
+msgstr "Wybrane realizacje"
+
+msgid "Built for brands that need trust at first glance."
+msgstr "Tworzone dla marek, które potrzebują zaufania od pierwszego spojrzenia."
+
 msgid ""
-"After review and refinements, the project goes live or gets delivered "
-"ready to support your business."
+"A mix of live work and concept directions showing the type of digital presence Ankiel Studio "
+"creates."
 msgstr ""
-"Po przeglądzie i dopracowaniu szczegółów projekt trafia online albo zostaje "
-"dostarczony w formie gotowej do wspierania Twojego biznesu."
-
-#: templates/index.html:342
-msgid "Selected website concepts"
-msgstr "Wybrane koncepcje stron"
-
-#: templates/index.html:344
-msgid ""
-"Example website directions I can design and build for businesses, service"
-" brands, and personal projects."
-msgstr ""
-"Przykładowe kierunki stron, które mogę zaprojektować i stworzyć dla firm, "
-"marek usługowych i projektów osobistych."
-
-#: templates/index.html:359
-msgid "Business Website"
-msgstr "Strona firmowa"
-
-#: templates/index.html:360
-msgid "Premium company website"
-msgstr "Premium strona firmowa"
-
-#: templates/index.html:361
-msgid ""
-"A professional corporate website designed to build trust, present "
-"services clearly, and convert visitors into qualified leads."
-msgstr ""
-"Profesjonalna strona firmowa zaprojektowana tak, by budować zaufanie, jasno "
-"prezentować usługi i zamieniać odwiedzających w wartościowe leady."
-
-#: templates/index.html:375
-msgid "Landing Page"
-msgstr "Landing page"
-
-#: templates/index.html:376
-msgid "High-conversion landing page"
-msgstr "Landing page nastawiony na wysoką konwersję"
-
-#: templates/index.html:377
-msgid ""
-"A focused landing page built for marketing campaigns, service promotion, "
-"and stronger call-to-action performance."
-msgstr ""
-"Skoncentrowany landing page stworzony pod kampanie marketingowe, promocję usług "
-"i skuteczniejsze wezwania do działania."
-
-#: templates/index.html:391
-msgid "Personal Brand"
-msgstr "Marka osobista"
-
-#: templates/index.html:392
-msgid "Minimal personal brand website"
-msgstr "Minimalistyczna strona marki osobistej"
-
-#: templates/index.html:393
-msgid ""
-"A modern website for freelancers, creators, and consultants who want a "
-"clean digital presence and stronger authority online."
-msgstr ""
-"Nowoczesna strona dla freelancerów, twórców i konsultantów, którzy chcą mieć "
-"czystą obecność cyfrową i mocniejszy autorytet online."
-
-#: templates/index.html:404
-msgid "Why clients choose this style"
-msgstr "Dlaczego klienci wybierają ten styl"
-
-#: templates/index.html:405
-msgid ""
-"A modern website or digital tool does more than look good — it changes "
-"how your business is perceived and how it works."
-msgstr ""
-"Nowoczesna strona internetowa lub narzędzie cyfrowe robi więcej niż tylko dobrze "
-"wygląda — zmienia to, jak postrzegany jest Twój biznes i jak działa."
-
-#: templates/index.html:410
-msgid "Stronger credibility"
-msgstr "Większa wiarygodność"
-
-#: templates/index.html:411
-msgid "A better first impression for new visitors and clients."
-msgstr "Lepsze pierwsze wrażenie dla nowych odwiedzających i klientów."
-
-#: templates/index.html:414
-msgid "Cleaner operations"
-msgstr "Sprawniejsze działania"
-
-#: templates/index.html:415
-msgid "Useful tools and dashboards can simplify reporting and internal workflows."
-msgstr "Przydatne narzędzia i dashboardy mogą uprościć raportowanie oraz wewnętrzne procesy."
-
-#: templates/index.html:418
-msgid "Higher perceived value"
-msgstr "Wyższa postrzegana wartość"
-
-#: templates/index.html:419
-msgid "Premium design and smart execution support premium positioning."
-msgstr "Premium design i przemyślana realizacja wspierają premium pozycjonowanie marki."
-
-#: templates/index.html:430
-msgid "Clear pricing for businesses that want quality, speed, and modern design"
-msgstr ""
-"Jasny cennik dla firm, które oczekują jakości, szybkości i nowoczesnego "
-"designu"
-
-#: templates/index.html:432
-msgid ""
-"Clear starting packages for standard projects, with custom quotes "
-"available depending on project scope, features, and complexity."
-msgstr ""
-"Przejrzyste pakiety startowe dla standardowych projektów, z możliwością "
-"indywidualnej wyceny zależnej od zakresu, funkcji i poziomu złożoności."
-
-#: templates/index.html:438
-msgid "Starter"
-msgstr "Starter"
-
-#: templates/index.html:441
-msgid "1 modern landing page"
-msgstr "1 nowoczesny landing page"
-
-#: templates/index.html:442
-msgid "Responsive layout"
-msgstr "Responsywny układ"
-
-#: templates/index.html:443
-msgid "Basic sections and contact CTA"
-msgstr "Podstawowe sekcje i CTA kontaktowe"
-
-#: templates/index.html:444
-msgid "Clean visual direction"
-msgstr "Czysty kierunek wizualny"
-
-#: templates/index.html:446
-msgid "Choose Starter"
-msgstr "Wybierz Starter"
-
-#: templates/index.html:450
-msgid "Most popular"
-msgstr "Najpopularniejszy"
-
-#: templates/index.html:451
-msgid "Business"
-msgstr "Business"
-
-#: templates/index.html:454
-msgid "Multi-section business website"
-msgstr "Wielosekcyjna strona firmowa"
-
-#: templates/index.html:455
-msgid "Premium modern design"
-msgstr "Nowoczesny design premium"
-
-#: templates/index.html:456
-msgid "Stronger structure and UX"
-msgstr "Lepsza struktura i UX"
-
-#: templates/index.html:457
-msgid "Best choice for most clients"
-msgstr "Najlepszy wybór dla większości klientów"
-
-#: templates/index.html:459
-msgid "Choose Business"
-msgstr "Wybierz Business"
-
-#: templates/index.html:463
-msgid "Premium"
-msgstr "Premium"
-
-#: templates/index.html:466
-msgid "Advanced custom website"
-msgstr "Zaawansowana strona na zamówienie"
-
-#: templates/index.html:467
-msgid "High-end visual polish"
-msgstr "Zaawansowane dopracowanie wizualne"
-
-#: templates/index.html:468
-msgid "More sections and complexity"
-msgstr "Więcej sekcji i większa złożoność"
-
-#: templates/index.html:469
-msgid "Priority execution"
-msgstr "Priorytetowa realizacja"
-
-#: templates/index.html:471
-msgid "Choose Premium"
-msgstr "Wybierz Premium"
-
-#: templates/index.html:476
-msgid ""
-"Custom quotes are available for smaller projects and more advanced "
-"business websites. Final pricing depends on scope, number of sections, "
-"and custom functionality."
-msgstr ""
-"Indywidualne wyceny są dostępne dla mniejszych projektów oraz bardziej "
-"zaawansowanych stron firmowych. Ostateczna cena zależy od zakresu, liczby "
-"sekcji i dedykowanych funkcji."
-
-#: templates/index.html:486
-msgid ""
-"Let’s create a website or digital solution that gives your business a "
-"stronger online presence."
-msgstr ""
-"Stwórzmy stronę internetową lub rozwiązanie cyfrowe, które zapewni Twojemu "
-"biznesowi silniejszą obecność online."
-
-#: templates/index.html:488
-msgid ""
-"Send a message with a few details about your business or project, and "
-"I’ll get back to you with the next steps."
-msgstr ""
-"Napisz wiadomość z kilkoma informacjami o swoim biznesie lub projekcie, a"
-" wrócę do Ciebie z kolejnymi krokami."
-
-#: templates/index.html:493
-msgid "Fast reply"
-msgstr "Szybka odpowiedź"
-
-#: templates/index.html:494
-msgid "Clear communication and simple process"
-msgstr "Jasna komunikacja i prosty proces"
-
-#: templates/index.html:497
-msgid "Global clients"
-msgstr "Klienci globalni"
-
-#: templates/index.html:518
-msgid "Name"
-msgstr "Imię"
-
-#: templates/index.html:519
-msgid "Your name"
-msgstr "Twoje imię"
-
-#: templates/index.html:523
-msgid "Email"
-msgstr "Email"
-
-#: templates/index.html:528
-msgid "Project type"
-msgstr "Typ projektu"
-
-#: templates/index.html:529
-msgid "Business website / landing page / dashboard / custom tool"
-msgstr "Strona firmowa / landing page / dashboard / dedykowane narzędzie"
-
-#: templates/index.html:533
-msgid "Message"
-msgstr "Wiadomość"
-
-#: templates/index.html:534
-msgid "Tell me a bit about your project"
-msgstr "Opowiedz mi trochę o swoim projekcie"
-
-#: templates/index.html:538
-msgid "Send inquiry"
-msgstr "Wyślij zapytanie"
-
-#: templates/index.html:550
-msgid ""
-"Modern websites, landing pages, and digital solutions for businesses and "
-"personal brands."
-msgstr ""
-"Nowoczesne strony internetowe, landing page’e i rozwiązania cyfrowe dla firm "
-"oraz marek osobistych."
-
-msgid "Basic on-page SEO setup"
-msgstr "Podstawowa konfiguracja SEO on-page"
-
-msgid "SEO-ready page structure"
-msgstr "Struktura strony przygotowana pod SEO"
-
-msgid "Advanced SEO-ready structure"
-msgstr "Zaawansowana struktura przygotowana pod SEO"
-
-msgid "All projects include responsive design, performance optimization, and a clean foundation for modern SEO."
-msgstr "Każdy projekt obejmuje responsywny design, optymalizację wydajności oraz solidną podstawę pod nowoczesne SEO."
-
-msgid "Stronger page structure and UX"
-msgstr "Lepsza struktura strony i UX"
-
-msgid "Advanced page structure for SEO"
-msgstr "Zaawansowana struktura strony pod SEO"
-
-msgid "Working with clients across Europe, the USA, and beyond"
-msgstr "Współpraca z klientami z Europy, USA i innych rynków"
-
-msgid "Next steps"
-msgstr "Kolejne kroki"
-
-msgid "Simple process after your inquiry"
-msgstr "Prosty proces po wysłaniu zapytania"
-
-msgid "Send your inquiry"
-msgstr "Wyślij zapytanie"
-
-msgid "Get a reply"
-msgstr "Otrzymaj odpowiedź"
-
-msgid "Start the project"
-msgstr "Rozpoczęcie projektu"
-
-msgid "No complicated sales process — just a few clear steps to move your project forward."
-msgstr "Bez skomplikowanego procesu sprzedaży — tylko kilka prostych kroków, które pozwolą ruszyć z Twoim projektem."
-
-msgid "Tell me a bit about your business, project type, and what kind of website or tool you need."
-msgstr "Opowiedz krótko o swojej firmie, typie projektu oraz o tym, jakiej strony lub narzędzia potrzebujesz."
-
-msgid "I’ll get back to you with the next steps, a recommended direction, and an initial quote if the scope is clear."
-msgstr "Odezwę się z kolejnymi krokami, proponowanym kierunkiem oraz wstępną wyceną, jeśli zakres projektu będzie jasny."
-
-msgid "Once everything is aligned, we move into execution with a clear scope, timeline, and communication process."
-msgstr "Gdy wszystko będzie ustalone, przechodzimy do realizacji z jasno określonym zakresem, harmonogramem i sposobem komunikacji."
-
-msgid "Selected website projects"
-msgstr "Wybrane realizacje stron internetowych"
-
-msgid "A selection of website projects, concepts, and digital work created for businesses, service brands, and personal projects."
-msgstr "Wybrane realizacje stron, koncepcji i projektów cyfrowych tworzonych dla firm, marek usługowych i projektów osobistych."
-
-msgid "Client project"
-msgstr "Projekt klienta"
-
-msgid "Concept project"
-msgstr "Projekt koncepcyjny"
-
-msgid "Masarnia Jastew"
-msgstr "Masarnia Jastew"
-
-msgid "A modern business website created for a traditional butcher brand. The project focused on clear presentation, stronger trust, mobile responsiveness, and a clean contact experience."
-msgstr "Nowoczesna strona firmowa stworzona dla tradycyjnej marki masarskiej. Projekt koncentrował się na czytelnej prezentacji oferty, budowaniu zaufania, responsywności mobilnej i prostym kontakcie."
-
-msgid "Scope: website design, frontend development, responsive layout, contact form, basic SEO"
-msgstr "Zakres: projekt strony, wdrożenie frontendu, responsywny układ, formularz kontaktowy, podstawowe SEO"
-
-msgid "View live website"
-msgstr "Zobacz stronę"
-
-msgid "High-conversion landing page"
-msgstr "Landing page nastawiony na wysoką konwersję"
+"Połączenie realizacji live i kierunków koncepcyjnych pokazujących typ obecności cyfrowej, którą "
+"tworzy Ankiel Studio."
 
 msgid "Live client project"
 msgstr "Realizacja dla klienta"
 
-#~ msgid "Modern web design for ambitious brands"
-#~ msgstr "Nowoczesny web design dla ambitnych marek"
+msgid "Masarnia Jastew"
+msgstr "Masarnia Jastew"
 
-#~ msgid "Design-focused websites built to help your business grow."
-#~ msgstr "Strony nastawione na design, stworzone po to, by rozwijać Twój biznes."
+msgid ""
+"A modern business website for a traditional butcher brand, focused on credibility, mobile "
+"clarity, product presentation, and contact flow."
+msgstr ""
+"Nowoczesna strona firmowa dla tradycyjnej marki masarskiej, skupiona na wiarygodności, "
+"czytelności mobile, prezentacji produktów i prostym kontakcie."
 
-#~ msgid "What I can build for your business"
-#~ msgstr "Co mogę zbudować dla Twojego biznesu"
+msgid "View live website"
+msgstr "Zobacz stronę"
 
-#~ msgid ""
-#~ "Flexible website services for personal "
-#~ "brands, local businesses, startups, and "
-#~ "growing companies."
-#~ msgstr ""
-#~ "Elastyczne usługi tworzenia stron dla "
-#~ "marek osobistych, lokalnych firm, startupów"
-#~ " i rozwijających się przedsiębiorstw."
+msgid "Concept direction"
+msgstr "Kierunek koncepcyjny"
 
-#~ msgid "Simple packages for different business stages"
-#~ msgstr "Proste pakiety dla różnych etapów rozwoju biznesu"
+msgid "Conversion launch page"
+msgstr "Launch page nastawiony na konwersję"
 
-#~ msgid ""
-#~ "If you need a modern website for"
-#~ " your business, brand, or service, "
-#~ "send a message and let’s talk "
-#~ "about the project."
-#~ msgstr ""
-#~ "Jeśli potrzebujesz nowoczesnej strony dla "
-#~ "swojej firmy, marki lub usługi, napisz"
-#~ " wiadomość i porozmawiajmy o projekcie."
+msgid "Sharp narrative, animated proof points, and a high-focus CTA path for service campaigns."
+msgstr "Wyrazista narracja, animowane argumenty zaufania i skupiona ścieżka CTA dla kampanii usługowych."
 
-#~ msgid "Poland-friendly offers available"
-#~ msgstr "Dostępne oferty dopasowane do Polski"
+msgid "Founder studio profile"
+msgstr "Profil founder studio"
 
-#~ msgid "Better trust"
-#~ msgstr "Większe zaufanie"
+msgid "Minimal but memorable personal brand presence with editorial rhythm and premium spacing."
+msgstr ""
+"Minimalna, ale zapamiętywalna obecność marki osobistej z editorialowym rytmem i premium "
+"spacingiem."
 
-#~ msgid "Clearer messaging and cleaner business presentation."
-#~ msgstr "Jaśniejszy przekaz i bardziej profesjonalna prezentacja firmy."
+msgid "Clear starting points, custom execution."
+msgstr "Jasne punkty startowe, indywidualna realizacja."
 
-#~ msgid "Fast communication"
-#~ msgstr "Szybka komunikacja"
+msgid ""
+"Packages are starting frames. Final pricing depends on scope, motion depth, sections, "
+"integrations, and custom functionality."
+msgstr ""
+"Pakiety są ramą startową. Ostateczna cena zależy od zakresu, poziomu motion, liczby sekcji, "
+"integracji i funkcji dedykowanych."
 
-#~ msgid ""
-#~ "Clear process, smooth collaboration, and "
-#~ "focused execution from start to finish."
-#~ msgstr ""
-#~ "Jasny proces, płynna współpraca i "
-#~ "konkretna realizacja od początku do "
-#~ "końca."
+msgid "Starter"
+msgstr "Starter"
 
-#~ msgid "Selected concepts and project direction"
-#~ msgstr "Wybrane koncepcje i kierunek projektowy"
+msgid "One premium landing page"
+msgstr "Jeden premium landing page"
 
-#~ msgid ""
-#~ "Example presentation blocks for future "
-#~ "projects, client work, or case studies."
-#~ msgstr ""
-#~ "Przykładowe bloki prezentacyjne dla przyszłych"
-#~ " projektów, realizacji klientowskich lub "
-#~ "case studies."
+msgid "Responsive layout"
+msgstr "Responsywny układ"
 
-#~ msgid ""
-#~ "A clean corporate layout focused on "
-#~ "trust, clarity, and stronger lead "
-#~ "generation."
-#~ msgstr ""
-#~ "Czysty układ korporacyjny skupiony na "
-#~ "zaufaniu, przejrzystości i lepszym "
-#~ "pozyskiwaniu leadów."
+msgid "Core SEO setup"
+msgstr "Podstawowa konfiguracja SEO"
 
-#~ msgid "Offer page for service conversion"
-#~ msgstr "Strona oferty nastawiona na konwersję"
+msgid "Contact CTA"
+msgstr "CTA kontaktowe"
 
-#~ msgid ""
-#~ "A focused, modern layout with stronger"
-#~ " messaging and cleaner calls to "
-#~ "action."
-#~ msgstr ""
-#~ "Skoncentrowany, nowoczesny układ z mocniejszym"
-#~ " komunikatem i czytelniejszymi wezwaniami "
-#~ "do działania."
+msgid "Choose Starter"
+msgstr "Wybierz Starter"
 
-#~ msgid ""
-#~ "A sharp, visual-first website for "
-#~ "freelancers and specialists building authority"
-#~ " online."
-#~ msgstr ""
-#~ "Wyrazista, wizualna strona dla freelancerów"
-#~ " i specjalistów budujących autorytet "
-#~ "online."
+msgid "Most selected"
+msgstr "Najczęściej wybierany"
 
-#~ msgid "Cleaner messaging"
-#~ msgstr "Czytelniejszy przekaz"
+msgid "Business"
+msgstr "Business"
 
-#~ msgid "Your offer becomes easier to understand fast."
-#~ msgstr "Twoja oferta staje się szybciej i łatwiej zrozumiała."
+msgid "Multi-section website"
+msgstr "Wielosekcyjna strona"
 
-#~ msgid ""
-#~ "Straightforward starting packages for "
-#~ "international clients, with custom pricing "
-#~ "available for projects in Poland."
-#~ msgstr ""
-#~ "Przejrzyste pakiety startowe dla klientów "
-#~ "międzynarodowych, z możliwością indywidualnej "
-#~ "wyceny dla projektów w Polsce."
+msgid "Premium visual direction"
+msgstr "Premium kierunek wizualny"
 
-#~ msgid ""
-#~ "Custom pricing available for businesses "
-#~ "in Poland. Typical local projects start"
-#~ " from"
-#~ msgstr ""
-#~ "Dostępna jest indywidualna wycena dla "
-#~ "firm w Polsce. Lokalne projekty "
-#~ "zaczynają się od"
+msgid "Scroll and reveal motion"
+msgstr "Animacje scroll i reveal"
+
+msgid "SEO-ready structure"
+msgstr "Struktura gotowa pod SEO"
+
+msgid "Choose Business"
+msgstr "Wybierz Business"
+
+msgid "Premium"
+msgstr "Premium"
+
+msgid "Advanced custom website"
+msgstr "Zaawansowana strona custom"
+
+msgid "Cinematic interaction layer"
+msgstr "Cinematic warstwa interakcji"
+
+msgid "More sections and polish"
+msgstr "Więcej sekcji i dopracowania"
+
+msgid "Priority execution"
+msgstr "Priorytetowa realizacja"
+
+msgid "Choose Premium"
+msgstr "Wybierz Premium"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Want a website that feels like your brand has arrived?"
+msgstr "Chcesz stronę, która sprawia wrażenie, że Twoja marka właśnie weszła na wyższy poziom?"
+
+msgid ""
+"Send a short brief. I will reply with the recommended direction, scope, and next step for a "
+"premium interactive website or digital tool."
+msgstr ""
+"Wyślij krótki brief. Odpowiem z rekomendowanym kierunkiem, zakresem i kolejnym krokiem dla "
+"premium interaktywnej strony lub narzędzia cyfrowego."
+
+msgid "Global-ready"
+msgstr "Gotowe globalnie"
+
+msgid "Europe, USA, and remote-first collaboration"
+msgstr "Europa, USA i współpraca remote-first"
+
+msgid "Render-friendly"
+msgstr "Przyjazne dla Render"
+
+msgid "Flask/Jinja/static frontend kept clean for deployment"
+msgstr "Flask/Jinja/static frontend utrzymany czysto pod deployment"
+
+msgid "Name"
+msgstr "Imię"
+
+msgid "Your name"
+msgstr "Twoje imię"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Project type"
+msgstr "Typ projektu"
+
+msgid "Premium website / landing page / dashboard / custom tool"
+msgstr "Strona premium / landing page / dashboard / narzędzie custom"
+
+msgid "Message"
+msgstr "Wiadomość"
+
+msgid "Tell me a bit about your project"
+msgstr "Opowiedz mi trochę o swoim projekcie"
+
+msgid "Send inquiry"
+msgstr "Wyślij zapytanie"
+
+msgid "Premium interactive websites and digital solutions for ambitious brands."
+msgstr "Premium interaktywne strony i rozwiązania cyfrowe dla ambitnych marek."
+
+msgid "View work"
+msgstr "Zobacz realizacje"
+
+msgid "SEO focus"
+msgstr "Fokus SEO"
+
+msgid "What is included"
+msgstr "Co zawiera projekt"
+
+msgid "Built to look premium and give Google something clear to understand."
+msgstr "Zbudowane tak, żeby wyglądać premium i dawać Google jasny kontekst."
+
+msgid ""
+"This page exists as an indexable service or case study URL with focused content, canonical tags, "
+"hreflang, schema, and internal links."
+msgstr ""
+"Ta podstrona działa jako indeksowalny URL usługi lub case study z konkretną treścią, "
+"canonicalami, hreflang, schema i linkami wewnętrznymi."
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Answers for visitors and structured data for search."
+msgstr "Odpowiedzi dla odwiedzających i dane strukturalne dla wyszukiwarki."
 

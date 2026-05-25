@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#0f0f10" />
+
+  <meta property="og:type" content="{{ seo.og_type }}" />
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ page.description }}" />
+  <meta property="og:image" content="{{ url_for('static', filename='img/logo-main.png', _external=True) }}" />
+  <meta property="og:url" content="{{ seo.canonical_url }}" />
+  <meta property="og:site_name" content="Ankiel Studio" />
+  <meta property="og:locale" content="{{ 'pl_PL' if current_lang == 'pl' else 'en_US' }}" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ page.title }}" />
+  <meta name="twitter:description" content="{{ page.description }}" />
+  <meta name="twitter:image" content="{{ url_for('static', filename='img/logo-main.png', _external=True) }}" />
+
+  <link rel="canonical" href="{{ seo.canonical_url }}" />
+  {% for lang, href in seo.alternate_urls.items() %}
+    <link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
+  {% endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ seo.alternate_urls.get('en') }}" />
+
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/favicon.svg') }}?v=2">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.svg') }}?v=2">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ site_url }}/#organization",
+        "name": "Ankiel Studio",
+        "url": "{{ site_url }}/",
+        "logo": "{{ url_for('static', filename='img/logo-main.png', _external=True) }}"
+      },
+      {
+        "@type": "{{ 'CreativeWork' if slug.startswith('work/') else 'Service' }}",
+        "@id": "{{ seo.canonical_url }}#primary",
+        "name": "{{ page.service_name }}",
+        "url": "{{ seo.canonical_url }}",
+        "description": "{{ page.description }}",
+        "provider": {
+          "@id": "{{ site_url }}/#organization"
+        },
+        "areaServed": ["Poland", "Europe", "United States"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "{{ seo.canonical_url }}#faq",
+        "mainEntity": [
+          {% for question, answer in page.faq %}
+          {
+            "@type": "Question",
+            "name": "{{ question }}",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "{{ answer }}"
+            }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header" data-header>
+    <div class="container navbar">
+      <a href="{{ url_for('localized_home', lang=current_lang) }}" class="brand" aria-label="Ankiel Studio home">
+        <img src="{{ url_for('static', filename='img/logo-badge.png') }}" alt="Ankiel Studio badge" class="brand-badge" loading="lazy">
+        <span class="brand-text">ANKIEL STUDIO</span>
+      </a>
+
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#studio">{{ _("Studio") }}</a>
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#services">{{ _("Services") }}</a>
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#process">{{ _("Process") }}</a>
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#portfolio">{{ _("Work") }}</a>
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#pricing">{{ _("Pricing") }}</a>
+        <a href="{{ url_for('localized_home', lang=current_lang) }}#top" class="nav-cta">{{ _("Start") }}</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switcher" aria-label="Language selector">
+          <form action="{{ url_for('set_language', lang='en') }}" method="POST">
+            <button type="submit" class="lang-btn {% if current_lang == 'en' %}active{% endif %}">EN</button>
+          </form>
+          <form action="{{ url_for('set_language', lang='pl') }}" method="POST">
+            <button type="submit" class="lang-btn {% if current_lang == 'pl' %}active{% endif %}">PL</button>
+          </form>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="{{ _('Open menu') }}" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-ambient" aria-hidden="true">
+      <span class="ambient-orb ambient-orb-one"></span>
+      <span class="ambient-orb ambient-orb-two"></span>
+      <span class="ambient-orb ambient-orb-three"></span>
+    </div>
+
+    <section class="seo-hero" data-dark-section>
+      <div class="container seo-hero-grid">
+        <div class="seo-hero-copy reveal">
+          <p class="eyebrow"><span class="signal-dot"></span>{{ page.kicker }}</p>
+          <h1>{{ page.headline }}</h1>
+          <p>{{ page.intro }}</p>
+          <div class="hero-actions">
+            <a href="{{ url_for('localized_home', lang=current_lang) }}#contact" class="btn btn-primary">{{ _("Get a website demo") }}</a>
+            <a href="{{ url_for('localized_home', lang=current_lang) }}#portfolio" class="btn btn-ghost">{{ _("View work") }}</a>
+          </div>
+        </div>
+
+        <aside class="seo-panel reveal" data-tilt-card>
+          <span>{{ _("SEO focus") }}</span>
+          <h2>{{ page.service_name }}</h2>
+          <p>{{ page.description }}</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section seo-content-section">
+      <div class="container seo-content-grid">
+        <div class="section-heading reveal">
+          <span class="section-kicker">{{ _("What is included") }}</span>
+          <h2>{{ _("Built to look premium and give Google something clear to understand.") }}</h2>
+          <p>{{ _("This page exists as an indexable service or case study URL with focused content, canonical tags, hreflang, schema, and internal links.") }}</p>
+        </div>
+
+        <div class="seo-point-list">
+          {% for point in page.points %}
+            <article class="service-card reveal" data-tilt-card>
+              <span class="service-index">0{{ loop.index }}</span>
+              <h3>{{ point }}</h3>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section cinematic-band" data-dark-section>
+      <div class="container cinematic-grid">
+        <div class="cinematic-copy reveal">
+          <span class="section-kicker section-kicker-dark">{{ _("FAQ") }}</span>
+          <h2>{{ _("Answers for visitors and structured data for search.") }}</h2>
+        </div>
+        <div class="cinematic-points">
+          {% for question, answer in page.faq %}
+            <div class="cinematic-point reveal">
+              <span>{{ question }}</span>
+              <p>{{ answer }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" data-dark-section>
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="section-kicker section-kicker-dark">{{ _("Contact") }}</span>
+          <h2>{{ _("Want a website that feels like your brand has arrived?") }}</h2>
+          <p>{{ _("Send a short brief. I will reply with the recommended direction, scope, and next step for a premium interactive website or digital tool.") }}</p>
+        </div>
+        <div class="contact-card reveal" data-tilt-card>
+          <form class="contact-form" action="{{ url_for('contact') }}" method="POST">
+            <div class="form-row">
+              <label for="name">{{ _("Name") }}</label>
+              <input type="text" id="name" name="name" placeholder="{{ _('Your name') }}">
+            </div>
+            <div class="form-row">
+              <label for="email">{{ _("Email") }}</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com">
+            </div>
+            <div class="form-row">
+              <label for="project">{{ _("Project type") }}</label>
+              <input type="text" id="project" name="project" value="{{ page.service_name }}">
+            </div>
+            <div class="form-row">
+              <label for="message">{{ _("Message") }}</label>
+              <textarea id="message" name="message" rows="5" placeholder="{{ _('Tell me a bit about your project') }}"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary contact-submit">{{ _("Send inquiry") }}</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p class="footer-brand">ANKIEL STUDIO</p>
+          <p class="footer-copy">{{ _("Premium interactive websites and digital solutions for ambitious brands.") }}</p>
+        </div>
+        <div class="footer-links">
+          <a href="{{ url_for('localized_home', lang=current_lang) }}#services">{{ _("Services") }}</a>
+          <a href="{{ url_for('localized_home', lang=current_lang) }}#portfolio">{{ _("Work") }}</a>
+          <a href="{{ url_for('localized_home', lang=current_lang) }}#contact">{{ _("Contact") }}</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>
