@@ -143,12 +143,27 @@
     </div>
   </header>
 
-  <main>
+  <main class="cinematic-site" data-cinematic-root>
     <div class="page-ambient" aria-hidden="true">
       <span class="ambient-orb ambient-orb-one"></span>
       <span class="ambient-orb ambient-orb-two"></span>
       <span class="ambient-orb ambient-orb-three"></span>
     </div>
+
+    <div class="cinematic-hud" aria-hidden="true">
+      <div class="chapter-line">
+        <span class="chapter-line-fill" data-chapter-progress></span>
+      </div>
+      <div class="chapter-meta">
+        <span data-chapter-number>01</span>
+        <strong data-chapter-label>{{ _("Signal") }}</strong>
+      </div>
+    </div>
+
+    <button class="sound-toggle" type="button" data-sound-toggle aria-pressed="false">
+      <span>{{ _("Sound") }}</span>
+      <i></i>
+    </button>
 
     <h1 class="sr-only">{{ _("Ankiel Studio - premium interactive websites and digital solutions") }}</h1>
 
@@ -181,7 +196,7 @@
           </div>
         </div>
 
-        <aside class="hero-interface reveal reveal-delay-4" data-tilt-card>
+        <aside class="hero-interface reveal reveal-delay-4" data-tilt-card data-cinematic-hold>
           <div class="interface-top">
             <span></span>
             <span></span>
@@ -190,6 +205,12 @@
           </div>
 
           <div class="interface-screen">
+            <div class="interface-blueprint" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
             <div class="motion-orbit">
               <span></span>
               <span></span>
@@ -218,6 +239,7 @@
               <strong>{{ _("Fast Flask build") }}</strong>
             </div>
           </div>
+          <p class="hold-caption">{{ _("Hold to reveal the blueprint layer") }}</p>
         </aside>
       </div>
 
@@ -227,7 +249,7 @@
       </div>
     </section>
 
-    <section class="studio-strip" id="studio">
+    <section class="studio-strip" id="studio" data-chapter-title="{{ _('Signal') }}">
       <div class="container studio-strip-inner">
         <p class="mono-label reveal">{{ _("The studio") }}</p>
         <div class="studio-statement reveal">
@@ -236,7 +258,7 @@
       </div>
     </section>
 
-    <section class="section capability-section" id="services">
+    <section class="section capability-section" id="services" data-chapter-title="{{ _('Direction') }}">
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">{{ _("Services") }}</span>
@@ -274,7 +296,7 @@
       </div>
     </section>
 
-    <section class="section cinematic-band" data-dark-section>
+    <section class="section cinematic-band" data-dark-section data-chapter-title="{{ _('Atmosphere') }}">
       <div class="container cinematic-grid">
         <div class="cinematic-copy reveal">
           <span class="section-kicker section-kicker-dark">{{ _("Experience layer") }}</span>
@@ -297,7 +319,7 @@
       </div>
     </section>
 
-    <section class="section process-section" id="process">
+    <section class="section process-section" id="process" data-chapter-title="{{ _('Process') }}">
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">{{ _("Process") }}</span>
@@ -333,7 +355,7 @@
       </div>
     </section>
 
-    <section class="section work-section" id="portfolio">
+    <section class="section work-section" id="portfolio" data-chapter-title="{{ _('Work') }}">
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">{{ _("Selected work") }}</span>
@@ -342,7 +364,7 @@
         </div>
 
         <div class="work-grid">
-          <article class="work-card work-card-live reveal" data-tilt-card>
+          <article class="work-card work-card-live reveal" data-tilt-card data-cinematic-hold>
             <div class="work-preview">
               <img
                 src="{{ url_for('static', filename='img/masarniajastew-preview.png') }}"
@@ -357,6 +379,7 @@
               <a href="https://masarniajastew.pl/" target="_blank" rel="noopener noreferrer" class="text-link">
                 {{ _("View live website") }}
               </a>
+              <p class="hold-caption hold-caption-dark">{{ _("Hold to reveal the rough wireframe behind the final screen") }}</p>
             </div>
           </article>
 
@@ -395,7 +418,7 @@
       </div>
     </section>
 
-    <section class="section pricing-section" id="pricing">
+    <section class="section pricing-section" id="pricing" data-chapter-title="{{ _('Investment') }}">
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">{{ _("Pricing") }}</span>
@@ -444,7 +467,7 @@
       </div>
     </section>
 
-    <section class="section contact-section" id="contact" data-dark-section>
+    <section class="section contact-section" id="contact" data-dark-section data-chapter-title="{{ _('Launch') }}">
       <div class="container contact-grid">
         <div class="contact-copy reveal">
           <span class="section-kicker section-kicker-dark">{{ _("Contact") }}</span>

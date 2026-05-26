@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
+  const cinematicRoot = document.querySelector("[data-cinematic-root]");
   const header = document.querySelector("[data-header]");
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector(".nav-menu");
@@ -9,6 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const magneticItems = document.querySelectorAll(".magnetic, .btn, .service-card, .pricing-card, .work-card, .cinematic-point, .contact-card, .seo-panel");
   const atmosphereCards = document.querySelectorAll(".service-card, .pricing-card, .work-card, .cinematic-point, .contact-card, .seo-panel, .process-step");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (cinematicRoot) {
+    body.classList.add("cinematic-mode", "story-primed");
+  }
 
   const closeMenu = () => {
     if (!navMenu || !menuToggle) return;
@@ -197,8 +202,163 @@ document.addEventListener("DOMContentLoaded", () => {
     updateParallax();
   }
 
+  initCinematicStory(reduceMotion);
   initWebglBackground(reduceMotion);
 });
+
+function initCinematicStory(reduceMotion) {
+  const body = document.body;
+  const scenes = [
+    ...document.querySelectorAll(".hero, .studio-strip, .section[data-chapter-title]"),
+  ];
+  const progressBar = document.querySelector("[data-chapter-progress]");
+  const chapterNumber = document.querySelector("[data-chapter-number]");
+  const chapterLabel = document.querySelector("[data-chapter-label]");
+  const holdTargets = document.querySelectorAll("[data-cinematic-hold]");
+  const soundToggle = document.querySelector("[data-sound-toggle]");
+  const lazyImages = new WeakSet();
+
+  if (!scenes.length) return;
+
+  let audioContext = null;
+  let soundEnabled = false;
+  let activeChapter = -1;
+
+  const labels = scenes.map((scene, index) => {
+    if (scene.dataset.chapterTitle) return scene.dataset.chapterTitle;
+    return index === 0 ? "Signal" : `Chapter ${index + 1}`;
+  });
+
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+  const playCue = (index) => {
+    if (!soundEnabled || !audioContext) return;
+    const now = audioContext.currentTime;
+    const baseFrequency = 180 + index * 34;
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    oscillator.type = "sine";
+    oscillator.frequency.setValueAtTime(baseFrequency, now);
+    oscillator.frequency.exponentialRampToValueAtTime(baseFrequency * 1.7, now + 0.28);
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.055, now + 0.035);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+    oscillator.start(now);
+    oscillator.stop(now + 0.45);
+  };
+
+  const setChapter = (index) => {
+    if (index === activeChapter) return;
+    activeChapter = index;
+    body.dataset.cinematicChapter = String((index % 4) + 1);
+
+    if (chapterNumber) chapterNumber.textContent = String(index + 1).padStart(2, "0");
+    if (chapterLabel) chapterLabel.textContent = labels[index] || `Chapter ${index + 1}`;
+
+    playCue(index);
+  };
+
+  const update = () => {
+    const viewport = window.innerHeight || 1;
+    const scrollable = document.documentElement.scrollHeight - viewport;
+    const storyProgress = scrollable > 0 ? window.scrollY / scrollable : 0;
+    const spotlightX = 50 + Math.sin(storyProgress * Math.PI * 1.8) * 30;
+    const spotlightY = 28 + Math.cos(storyProgress * Math.PI * 1.25) * 18;
+
+    document.documentElement.style.setProperty("--story-progress", storyProgress.toFixed(4));
+    document.documentElement.style.setProperty("--cinema-x", `${spotlightX}%`);
+    document.documentElement.style.setProperty("--cinema-y", `${spotlightY}%`);
+
+    let strongest = 0;
+    let strongestScore = -1;
+
+    scenes.forEach((scene, index) => {
+      const rect = scene.getBoundingClientRect();
+      const center = rect.top + rect.height * 0.5;
+      const progress = (center - viewport * 0.5) / viewport;
+      const visibility = 1 - clamp(Math.abs(progress), 0, 1);
+      const drift = clamp(progress * -48, -54, 54);
+      const depth = clamp(progress * -22, -24, 24);
+
+      scene.style.setProperty("--chapter-visibility", visibility.toFixed(3));
+      scene.style.setProperty("--chapter-drift", `${drift}px`);
+      scene.style.setProperty("--chapter-depth", `${depth}px`);
+
+      if (visibility > strongestScore) {
+        strongestScore = visibility;
+        strongest = index;
+      }
+    });
+
+    setChapter(strongest);
+
+    if (progressBar) progressBar.style.transform = `scaleY(${storyProgress})`;
+  };
+
+  const prewarmScene = (scene) => {
+    scene.querySelectorAll("img").forEach((image) => {
+      if (lazyImages.has(image)) return;
+      lazyImages.add(image);
+      if (typeof image.decode === "function") {
+        image.decode().catch(() => {});
+      }
+    });
+  };
+
+  holdTargets.forEach((target) => {
+    const start = () => target.classList.add("is-holding");
+    const end = () => target.classList.remove("is-holding");
+
+    target.addEventListener("pointerdown", start);
+    target.addEventListener("pointerup", end);
+    target.addEventListener("pointercancel", end);
+    target.addEventListener("pointerleave", end);
+    target.addEventListener("touchstart", start, { passive: true });
+    target.addEventListener("touchend", end);
+  });
+
+  if (soundToggle) {
+    soundToggle.addEventListener("click", () => {
+      audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+      if (audioContext.state === "suspended") {
+        audioContext.resume();
+      }
+      soundEnabled = !soundEnabled;
+      soundToggle.classList.toggle("is-on", soundEnabled);
+      soundToggle.setAttribute("aria-pressed", String(soundEnabled));
+      if (soundEnabled) playCue(Math.max(activeChapter, 0));
+    });
+  }
+
+  if ("IntersectionObserver" in window) {
+    const preloadObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          prewarmScene(entry.target);
+        });
+      },
+      {
+        rootMargin: "60% 0px 60% 0px",
+        threshold: 0.01,
+      }
+    );
+
+    scenes.forEach((scene) => preloadObserver.observe(scene));
+  } else {
+    scenes.forEach(prewarmScene);
+  }
+
+  update();
+  if (!reduceMotion) {
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+  }
+}
 
 function initWebglBackground(reduceMotion) {
   const canvas = document.getElementById("webgl-stage");
@@ -236,20 +396,20 @@ function initWebglBackground(reduceMotion) {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
   renderer.setClearColor(0x000000, 0);
 
-  const blobGeometry = new THREE.IcosahedronGeometry(2.35, 32);
+  const blobGeometry = new THREE.IcosahedronGeometry(2.35, 38);
   const blobMaterial = new THREE.MeshStandardMaterial({
     color: 0x2bb9c3,
     roughness: 0.34,
     metalness: 0.12,
     transparent: true,
-    opacity: 0.26,
+    opacity: 0.24,
     wireframe: true,
   });
   const blob = new THREE.Mesh(blobGeometry, blobMaterial);
   blob.position.set(3.25, -0.72, -0.4);
   scene.add(blob);
 
-  const glowGeometry = new THREE.IcosahedronGeometry(2.15, 16);
+  const glowGeometry = new THREE.IcosahedronGeometry(2.15, 18);
   const glowMaterial = new THREE.MeshBasicMaterial({
     color: 0x1f9ea7,
     transparent: true,
@@ -259,10 +419,20 @@ function initWebglBackground(reduceMotion) {
   glow.position.copy(blob.position);
   scene.add(glow);
 
-  const particleCount = 420;
+  const fractureGeometry = new THREE.TorusKnotGeometry(1.28, 0.011, 160, 8, 2, 5);
+  const fractureMaterial = new THREE.MeshBasicMaterial({
+    color: 0xd8b76a,
+    transparent: true,
+    opacity: 0.28,
+  });
+  const fracture = new THREE.Mesh(fractureGeometry, fractureMaterial);
+  fracture.position.copy(blob.position);
+  scene.add(fracture);
+
+  const particleCount = 520;
   const positions = new Float32Array(particleCount * 3);
   for (let i = 0; i < particleCount; i += 1) {
-    const radius = 3.5 + Math.random() * 5.2;
+    const radius = 3.2 + Math.random() * 6.4;
     const angle = Math.random() * Math.PI * 2;
     positions[i * 3] = Math.cos(angle) * radius;
     positions[i * 3 + 1] = (Math.random() - 0.5) * 5.6;
@@ -273,7 +443,7 @@ function initWebglBackground(reduceMotion) {
   particleGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
   const particleMaterial = new THREE.PointsMaterial({
     color: 0x8ff6fb,
-    size: 0.025,
+    size: 0.026,
     transparent: true,
     opacity: 0.72,
     depthWrite: false,
@@ -286,6 +456,10 @@ function initWebglBackground(reduceMotion) {
   const keyLight = new THREE.PointLight(0x8ff6fb, 2.2, 22);
   keyLight.position.set(-3, 3, 5);
   scene.add(keyLight);
+
+  const warmLight = new THREE.PointLight(0xd8b76a, 1.1, 18);
+  warmLight.position.set(4, -2, 4);
+  scene.add(warmLight);
 
   const softLight = new THREE.AmbientLight(0xffffff, 0.28);
   scene.add(softLight);
@@ -315,29 +489,57 @@ function initWebglBackground(reduceMotion) {
   const clock = new THREE.Clock();
   const basePositions = positions.slice();
 
+  const palette = [
+    { blob: 0x2bb9c3, glow: 0x1f9ea7, fracture: 0xd8b76a },
+    { blob: 0xd8b76a, glow: 0x2bb9c3, fracture: 0xf4efe4 },
+    { blob: 0x8ff6fb, glow: 0xffffff, fracture: 0xd8b76a },
+    { blob: 0x1f9ea7, glow: 0xd8b76a, fracture: 0xffffff },
+  ];
+
   const animate = () => {
     const time = clock.getElapsedTime();
-    const scrollRatio = Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1.4);
+    const scrollMax = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const scrollRatio = Math.min(window.scrollY / scrollMax, 1);
+    const chapterFloat = scrollRatio * 6;
+    const activePalette = palette[Math.min(palette.length - 1, Math.floor(scrollRatio * palette.length))];
 
     const pos = particleGeometry.attributes.position.array;
     for (let i = 0; i < particleCount; i += 1) {
-      pos[i * 3 + 1] = basePositions[i * 3 + 1] + Math.sin(time * 0.42 + i * 0.22) * 0.045;
+      const pulse = Math.sin(time * 0.42 + i * 0.22 + scrollRatio * 5.6);
+      pos[i * 3] = basePositions[i * 3] + Math.cos(time * 0.18 + i) * scrollRatio * 0.18;
+      pos[i * 3 + 1] = basePositions[i * 3 + 1] + pulse * (0.045 + scrollRatio * 0.035);
     }
     particleGeometry.attributes.position.needsUpdate = true;
 
-    blob.rotation.x = time * 0.12 + mouse.y * 0.08;
-    blob.rotation.y = time * 0.18 + mouse.x * 0.14;
-    blob.position.x = 3.25 + mouse.x * 0.18;
-    blob.position.y = -0.72 - mouse.y * 0.12 - scrollRatio * 0.18;
+    blobMaterial.color.lerp(new THREE.Color(activePalette.blob), 0.04);
+    glowMaterial.color.lerp(new THREE.Color(activePalette.glow), 0.04);
+    fractureMaterial.color.lerp(new THREE.Color(activePalette.fracture), 0.04);
+    keyLight.color.lerp(new THREE.Color(activePalette.glow), 0.04);
+    warmLight.color.lerp(new THREE.Color(activePalette.fracture), 0.04);
+
+    blob.rotation.x = time * 0.12 + mouse.y * 0.08 + scrollRatio * 1.8;
+    blob.rotation.y = time * 0.18 + mouse.x * 0.14 + scrollRatio * 3.2;
+    blob.position.x = 3.25 + mouse.x * 0.18 - scrollRatio * 5.8;
+    blob.position.y = -0.72 - mouse.y * 0.12 + Math.sin(chapterFloat) * 0.38;
+    blob.scale.setScalar(1 + Math.sin(scrollRatio * Math.PI) * 0.16);
 
     glow.rotation.copy(blob.rotation);
     glow.position.copy(blob.position);
-    glow.scale.setScalar(1.05 + Math.sin(time * 0.8) * 0.035);
+    glow.scale.setScalar(1.05 + Math.sin(time * 0.8) * 0.035 + scrollRatio * 0.22);
 
-    particles.rotation.y = time * 0.025 + mouse.x * 0.03;
+    fracture.rotation.x = blob.rotation.x * -0.45 + time * 0.08;
+    fracture.rotation.y = blob.rotation.y * 0.8;
+    fracture.position.copy(blob.position);
+    fracture.scale.setScalar(1.05 + scrollRatio * 0.62 + Math.sin(time * 1.4) * 0.04);
+    fractureMaterial.opacity = 0.16 + Math.sin(scrollRatio * Math.PI) * 0.22;
+
+    particles.rotation.y = time * 0.025 + mouse.x * 0.03 + scrollRatio * 0.7;
     particles.rotation.x = mouse.y * 0.025;
-    camera.position.x += (mouse.x * 0.18 - camera.position.x) * 0.035;
-    camera.position.y += (-mouse.y * 0.12 - camera.position.y) * 0.035;
+    particleMaterial.opacity = 0.42 + Math.sin(scrollRatio * Math.PI) * 0.28;
+
+    camera.position.x += (mouse.x * 0.18 + Math.sin(scrollRatio * Math.PI * 2) * 0.7 - camera.position.x) * 0.035;
+    camera.position.y += (-mouse.y * 0.12 + Math.cos(scrollRatio * Math.PI * 1.4) * 0.24 - camera.position.y) * 0.035;
+    camera.position.z += (9 - scrollRatio * 1.8 - camera.position.z) * 0.035;
     camera.lookAt(0, 0, 0);
 
     renderer.render(scene, camera);

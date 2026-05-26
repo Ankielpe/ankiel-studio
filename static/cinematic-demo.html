@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankiel Studio | Cinematic Scroll Demo</title>
+  <meta name="description" content="A cinematic scroll concept for Ankiel Studio.">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/cinematic-demo.css">
+</head>
+<body>
+  <canvas id="film-canvas" aria-hidden="true"></canvas>
+
+  <header class="demo-header">
+    <a class="demo-brand" href="#scene-hero" aria-label="Ankiel Studio cinematic demo">
+      <img src="img/logo-badge.png" alt="">
+      <span>Ankiel Studio</span>
+    </a>
+    <nav aria-label="Demo navigation">
+      <a href="#scene-process">Proces</a>
+      <a href="#scene-work">Efekt</a>
+      <a href="#scene-contact">Kontakt</a>
+    </nav>
+  </header>
+
+  <div class="chapter-rail" aria-hidden="true">
+    <span class="chapter-progress"></span>
+  </div>
+
+  <main class="film-story">
+    <section class="film-scene scene-hero" id="scene-hero" data-scene="01">
+      <div class="scene-copy">
+        <p class="scene-kicker">Cinematic website concept</p>
+        <h1>Strona, ktora prowadzi jak krotki film.</h1>
+        <p>
+          Koncepcja dla Ankiel Studio: scroll zmienia swiatlo, warstwy, tekstury
+          i tempo narracji. Uzytkownik nie przeskakuje po sekcjach, tylko wchodzi
+          w proces powstawania premium strony.
+        </p>
+      </div>
+
+      <div class="hero-object" data-depth="0.18">
+        <div class="object-ring"></div>
+        <div class="object-card object-card-one">
+          <span>wireframe</span>
+        </div>
+        <div class="object-card object-card-two">
+          <span>brand</span>
+        </div>
+        <div class="object-card object-card-three">
+          <span>launch</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="film-scene scene-process" id="scene-process" data-scene="02">
+      <div class="scene-copy">
+        <p class="scene-kicker">Od szkicu do formy</p>
+        <h2>Najpierw pojawia sie struktura. Potem charakter.</h2>
+        <p>
+          Linie techniczne i surowy layout przechodza w dopracowany ekran:
+          typografia, rytm, kolor, CTA i warstwa ruchu.
+        </p>
+      </div>
+
+      <div class="blueprint-stage" data-depth="0.08">
+        <div class="blueprint blueprint-left">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>01 / Signal</strong>
+        </div>
+        <div class="blueprint blueprint-center">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>02 / Direction</strong>
+        </div>
+        <div class="blueprint blueprint-right">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>03 / Build</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="film-scene scene-work" id="scene-work" data-scene="03">
+      <div class="scene-copy">
+        <p class="scene-kicker">Portfolio jako scena</p>
+        <h2>Projekty nie sa kratka. Sa kadrami z historii marki.</h2>
+        <p>
+          Zamiast zwyklej galerii: przesuwajace sie plansze, glebie, swiatlo
+          i przed/po ukryte pod przytrzymaniem.
+        </p>
+      </div>
+
+      <div class="showcase-stack" data-hold-reveal data-depth="0.12">
+        <article class="showcase-panel panel-back">
+          <span>before</span>
+        </article>
+        <article class="showcase-panel panel-front">
+          <div class="panel-browser">
+            <i></i>
+            <i></i>
+            <i></i>
+            <div class="panel-hero"></div>
+            <div class="panel-lines"></div>
+          </div>
+          <span>after</span>
+        </article>
+        <p class="hold-note">Przytrzymaj panel, zeby zobaczyc warstwe "before".</p>
+      </div>
+    </section>
+
+    <section class="film-scene scene-contact" id="scene-contact" data-scene="04">
+      <div class="scene-copy">
+        <p class="scene-kicker">Finalny kadr</p>
+        <h2>Na koncu zostaje jasna decyzja: zaczynamy projekt.</h2>
+        <p>
+          Cala narracja prowadzi do jednego spokojnego CTA. Bez chaosu, bez
+          przypadkowych efektow, tylko premium odczucie i prosty nastepny krok.
+        </p>
+        <a class="demo-cta" href="mailto:hello@ankiel-studio.com">Zaprojektujmy to</a>
+      </div>
+
+      <div class="closing-mark" data-depth="0.16">
+        <img src="img/logo-main.png" alt="Ankiel Studio">
+      </div>
+    </section>
+  </main>
+
+  <script src="js/cinematic-demo.js"></script>
+</body>
+</html>
