@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ session.get('lang', 'en') }}">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-86E8QKLBMV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-86E8QKLBMV');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>{{ seo.title if seo is defined else _("Ankiel Studio | Modern websites and digital solutions for growing businesses") }}</title>
 
   <meta
     name="description"
