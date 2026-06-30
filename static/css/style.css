@@ -179,48 +179,6 @@ body.menu-open {
   letter-spacing: 0.14em;
 }
 
-.sound-toggle {
-  position: fixed;
-  z-index: 49;
-  right: 24px;
-  bottom: 24px;
-  min-height: 42px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 14px;
-  border-radius: 999px;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.72);
-  background: rgba(9, 10, 10, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(16px);
-}
-
-.sound-toggle span {
-  font-size: 0.72rem;
-  font-weight: 950;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.sound-toggle i {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.32);
-}
-
-.sound-toggle.is-on {
-  color: var(--white);
-  border-color: rgba(43, 185, 195, 0.42);
-}
-
-.sound-toggle.is-on i {
-  background: var(--chapter-accent);
-  box-shadow: 0 0 18px rgba(43, 185, 195, 0.84);
-}
-
 .ambient-orb {
   position: absolute;
   width: 42vw;
@@ -2066,21 +2024,35 @@ html[lang="pl"] .hero-title {
 }
 
 @media (max-width: 720px) {
+  body.cinematic-mode {
+    background:
+      radial-gradient(circle at 50% 5%, rgba(43, 185, 195, 0.16), transparent 18rem),
+      linear-gradient(180deg, #080909 0%, #111416 34%, #f7f9fa 58%, #070708 100%);
+  }
+
+  .cinematic-mode .page-ambient {
+    position: absolute;
+    opacity: 0.58;
+  }
+
+  .cinematic-site::before {
+    position: absolute;
+    opacity: 0.1;
+    background-size: 64px 64px;
+  }
+
+  .cinematic-site::after {
+    position: absolute;
+    opacity: 0.45;
+  }
+
+  .ambient-orb {
+    filter: blur(24px);
+    animation-duration: 28s;
+  }
+
   .cinematic-hud {
-    right: 14px;
-  }
-
-  .chapter-line {
-    height: 150px;
-  }
-
-  .chapter-meta {
     display: none;
-  }
-
-  .sound-toggle {
-    right: 14px;
-    bottom: 14px;
   }
 
   .container {
@@ -2104,6 +2076,20 @@ html[lang="pl"] .hero-title {
   .hero {
     min-height: auto;
     padding: 112px 0 58px;
+  }
+
+  .hero::before,
+  .hero::after {
+    opacity: 0.38;
+    animation: none;
+  }
+
+  .webgl-stage {
+    display: none;
+  }
+
+  .webgl-fallback {
+    opacity: 0.52;
   }
 
   .hero-title {
@@ -2262,6 +2248,17 @@ html[lang="pl"] .hero-title {
 
   .hero-interface {
     min-height: 350px;
+    transform: none !important;
+  }
+
+  .service-card,
+  .pricing-card,
+  .work-card,
+  .cinematic-point,
+  .contact-card,
+  .seo-panel,
+  .process-step {
+    transform: none !important;
   }
 
   .interface-metrics div {

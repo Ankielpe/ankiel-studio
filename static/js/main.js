@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const magneticItems = document.querySelectorAll(".magnetic, .btn, .service-card, .pricing-card, .work-card, .cinematic-point, .contact-card, .seo-panel");
   const atmosphereCards = document.querySelectorAll(".service-card, .pricing-card, .work-card, .cinematic-point, .contact-card, .seo-panel, .process-step");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+  const smallScreen = window.matchMedia("(max-width: 760px)").matches;
+  const mobileLight = coarsePointer || smallScreen;
 
   if (cinematicRoot) {
     body.classList.add("cinematic-mode", "story-primed");
@@ -113,15 +116,17 @@ document.addEventListener("DOMContentLoaded", () => {
   updateActiveLink();
   window.addEventListener("scroll", updateActiveLink, { passive: true });
 
-  magneticItems.forEach((item) => {
-    item.addEventListener("pointermove", (event) => {
-      const rect = item.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      item.style.setProperty("--x", `${x}%`);
-      item.style.setProperty("--y", `${y}%`);
+  if (!mobileLight) {
+    magneticItems.forEach((item) => {
+      item.addEventListener("pointermove", (event) => {
+        const rect = item.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        item.style.setProperty("--x", `${x}%`);
+        item.style.setProperty("--y", `${y}%`);
+      });
     });
-  });
+  }
 
   if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
     tiltCards.forEach((card) => {
@@ -189,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ticking = false;
   };
 
-  if (!reduceMotion) {
+  if (!reduceMotion && !mobileLight) {
     window.addEventListener(
       "scroll",
       () => {
@@ -202,11 +207,11 @@ document.addEventListener("DOMContentLoaded", () => {
     updateParallax();
   }
 
-  initCinematicStory(reduceMotion);
-  initWebglBackground(reduceMotion);
+  initCinematicStory(reduceMotion, mobileLight);
+  initWebglBackground(reduceMotion, mobileLight);
 });
 
-function initCinematicStory(reduceMotion) {
+function initCinematicStory(reduceMotion, mobileLight) {
   const body = document.body;
   const scenes = [
     ...document.querySelectorAll(".hero, .studio-strip, .section[data-chapter-title]"),
@@ -215,14 +220,12 @@ function initCinematicStory(reduceMotion) {
   const chapterNumber = document.querySelector("[data-chapter-number]");
   const chapterLabel = document.querySelector("[data-chapter-label]");
   const holdTargets = document.querySelectorAll("[data-cinematic-hold]");
-  const soundToggle = document.querySelector("[data-sound-toggle]");
   const lazyImages = new WeakSet();
 
   if (!scenes.length) return;
 
-  let audioContext = null;
-  let soundEnabled = false;
   let activeChapter = -1;
+  let ticking = false;
 
   const labels = scenes.map((scene, index) => {
     if (scene.dataset.chapterTitle) return scene.dataset.chapterTitle;
@@ -231,26 +234,6 @@ function initCinematicStory(reduceMotion) {
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
-  const playCue = (index) => {
-    if (!soundEnabled || !audioContext) return;
-    const now = audioContext.currentTime;
-    const baseFrequency = 180 + index * 34;
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-
-    oscillator.type = "sine";
-    oscillator.frequency.setValueAtTime(baseFrequency, now);
-    oscillator.frequency.exponentialRampToValueAtTime(baseFrequency * 1.7, now + 0.28);
-    gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(0.055, now + 0.035);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
-
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
-    oscillator.start(now);
-    oscillator.stop(now + 0.45);
-  };
-
   const setChapter = (index) => {
     if (index === activeChapter) return;
     activeChapter = index;
@@ -258,8 +241,6 @@ function initCinematicStory(reduceMotion) {
 
     if (chapterNumber) chapterNumber.textContent = String(index + 1).padStart(2, "0");
     if (chapterLabel) chapterLabel.textContent = labels[index] || `Chapter ${index + 1}`;
-
-    playCue(index);
   };
 
   const update = () => {
@@ -281,8 +262,8 @@ function initCinematicStory(reduceMotion) {
       const center = rect.top + rect.height * 0.5;
       const progress = (center - viewport * 0.5) / viewport;
       const visibility = 1 - clamp(Math.abs(progress), 0, 1);
-      const drift = clamp(progress * -48, -54, 54);
-      const depth = clamp(progress * -22, -24, 24);
+      const drift = mobileLight ? 0 : clamp(progress * -48, -54, 54);
+      const depth = mobileLight ? 0 : clamp(progress * -22, -24, 24);
 
       scene.style.setProperty("--chapter-visibility", visibility.toFixed(3));
       scene.style.setProperty("--chapter-drift", `${drift}px`);
@@ -321,19 +302,6 @@ function initCinematicStory(reduceMotion) {
     target.addEventListener("touchend", end);
   });
 
-  if (soundToggle) {
-    soundToggle.addEventListener("click", () => {
-      audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
-      if (audioContext.state === "suspended") {
-        audioContext.resume();
-      }
-      soundEnabled = !soundEnabled;
-      soundToggle.classList.toggle("is-on", soundEnabled);
-      soundToggle.setAttribute("aria-pressed", String(soundEnabled));
-      if (soundEnabled) playCue(Math.max(activeChapter, 0));
-    });
-  }
-
   if ("IntersectionObserver" in window) {
     const preloadObserver = new IntersectionObserver(
       (entries) => {
@@ -355,23 +323,65 @@ function initCinematicStory(reduceMotion) {
 
   update();
   if (!reduceMotion) {
-    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+      },
+      { passive: true }
+    );
     window.addEventListener("resize", update, { passive: true });
   }
 }
 
-function initWebglBackground(reduceMotion) {
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector(`script[src="${src}"]`);
+    if (existing) {
+      existing.addEventListener("load", resolve, { once: true });
+      existing.addEventListener("error", reject, { once: true });
+      if (window.THREE) resolve();
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = true;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
+async function initWebglBackground(reduceMotion, mobileLight) {
   const canvas = document.getElementById("webgl-stage");
-  const THREE = window.THREE;
 
   const shouldSkip =
     reduceMotion ||
+    mobileLight ||
     !canvas ||
-    !THREE ||
     window.innerWidth < 720 ||
     (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
 
   if (shouldSkip) {
+    document.body.classList.add("no-webgl");
+    return;
+  }
+
+  try {
+    await loadScript("https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js");
+  } catch (error) {
+    document.body.classList.add("no-webgl");
+    return;
+  }
+
+  const THREE = window.THREE;
+  if (!THREE) {
     document.body.classList.add("no-webgl");
     return;
   }
