@@ -261,22 +261,6 @@ msgstr ""
 "Połączenie realizacji live i kierunków koncepcyjnych pokazujących typ obecności cyfrowej, którą "
 "tworzy Ankiel Studio."
 
-msgid "Live client project"
-msgstr "Realizacja dla klienta"
-
-msgid "Masarnia Jastew"
-msgstr "Masarnia Jastew"
-
-msgid ""
-"A modern business website for a traditional butcher brand, focused on credibility, mobile "
-"clarity, product presentation, and contact flow."
-msgstr ""
-"Nowoczesna strona firmowa dla tradycyjnej marki masarskiej, skupiona na wiarygodności, "
-"czytelności mobile, prezentacji produktów i prostym kontakcie."
-
-msgid "View live website"
-msgstr "Zobacz stronę"
-
 msgid "Concept direction"
 msgstr "Kierunek koncepcyjny"
 

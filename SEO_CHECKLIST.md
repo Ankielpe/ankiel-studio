@@ -14,7 +14,6 @@ Notatka do monitorowania SEO po wdrożeniu zmian na `https://ankiel-studio.com`.
   - `https://ankiel-studio.com/en/landing-pages`
   - `https://ankiel-studio.com/en/flask-web-development`
   - `https://ankiel-studio.com/en/dashboard-development`
-  - `https://ankiel-studio.com/en/work/masarnia-jastew`
 - Strona ma przygotowane:
   - canonical URLs
   - hreflang dla EN/PL

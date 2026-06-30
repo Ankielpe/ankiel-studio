@@ -232,20 +232,6 @@ msgid ""
 "creates."
 msgstr ""
 
-msgid "Live client project"
-msgstr ""
-
-msgid "Masarnia Jastew"
-msgstr ""
-
-msgid ""
-"A modern business website for a traditional butcher brand, focused on credibility, mobile "
-"clarity, product presentation, and contact flow."
-msgstr ""
-
-msgid "View live website"
-msgstr ""
-
 msgid "Concept direction"
 msgstr ""
 
@@ -398,4 +384,3 @@ msgstr ""
 
 msgid "Answers for visitors and structured data for search."
 msgstr ""
-

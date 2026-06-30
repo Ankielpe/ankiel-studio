@@ -98,25 +98,6 @@ SEO_PAGES = {
             ("Can dashboards be connected to real data?", "Yes. The implementation can be planned around files, databases, APIs, or other data sources depending on project scope."),
         ],
     },
-    "work/masarnia-jastew": {
-        "title": "Masarnia Jastew Website Case Study | Ankiel Studio",
-        "description": "A live client website project for Masarnia Jastew focused on credibility, mobile clarity, product presentation, and contact flow.",
-        "kicker": "Case Study",
-        "headline": "A modern website for a traditional butcher brand.",
-        "intro": "Masarnia Jastew needed a clean business website that could present a traditional local brand with more trust, clarity, and mobile-friendly structure.",
-        "service_name": "Masarnia Jastew Website",
-        "points": [
-            "Business website design and frontend development",
-            "Responsive layout and contact flow",
-            "Clear presentation for a traditional food brand",
-            "Live project with public website link",
-        ],
-        "external_url": "https://masarniajastew.pl/",
-        "faq": [
-            ("What was the project goal?", "The goal was to create a modern website that builds trust and makes the business easier to understand and contact online."),
-            ("What was included?", "The project included website design, frontend development, responsive layout, contact form flow, and basic SEO structure."),
-        ],
-    },
 }
 
 PL_SEO_PAGES = {
@@ -190,25 +171,6 @@ PL_SEO_PAGES = {
         "faq": [
             ("Jakie dashboardy możesz zbudować?", "Przykłady to dashboardy KPI, widoki raportowe, narzędzia operacyjne, trackery leadów i wewnętrzne panele biznesowe."),
             ("Czy dashboard może być połączony z realnymi danymi?", "Tak. Implementację można zaplanować wokół plików, baz danych, API lub innych źródeł danych zależnie od zakresu."),
-        ],
-    },
-    "work/masarnia-jastew": {
-        "title": "Case Study strony Masarnia Jastew | Ankiel Studio",
-        "description": "Realizacja strony dla Masarni Jastew skupiona na wiarygodności, czytelności mobile, prezentacji produktów i kontakcie.",
-        "kicker": "Case Study",
-        "headline": "Nowoczesna strona dla tradycyjnej marki masarskiej.",
-        "intro": "Masarnia Jastew potrzebowała czytelnej strony firmowej, która pokaże tradycyjną lokalną markę w bardziej wiarygodny, przejrzysty i mobilny sposób.",
-        "service_name": "Strona Masarnia Jastew",
-        "points": [
-            "Projekt strony firmowej i frontend development",
-            "Responsywny układ i prosty kontakt",
-            "Czytelna prezentacja tradycyjnej marki spożywczej",
-            "Realizacja live z publicznym linkiem do strony",
-        ],
-        "external_url": "https://masarniajastew.pl/",
-        "faq": [
-            ("Jaki był cel projektu?", "Celem było stworzenie nowoczesnej strony, która buduje zaufanie i ułatwia zrozumienie oraz kontakt z firmą online."),
-            ("Co obejmowała realizacja?", "Projekt obejmował design strony, wdrożenie frontendu, responsywny układ, flow kontaktowy i podstawową strukturę SEO."),
         ],
     },
 }
@@ -367,11 +329,6 @@ def dashboard_development_redirect():
     return redirect(url_for("localized_seo_page", lang=DEFAULT_LANGUAGE, slug="dashboard-development"), code=301)
 
 
-@app.route("/work/masarnia-jastew")
-def masarnia_jastew_redirect():
-    return redirect(url_for("localized_seo_page", lang=DEFAULT_LANGUAGE, slug="work/masarnia-jastew"), code=301)
-
-
 @app.route("/<lang>/")
 def localized_home(lang):
     if lang not in SUPPORTED_LANGUAGES:
@@ -484,3 +441,4 @@ Message:
 
 if __name__ == "__main__":
     app.run(debug=True)
+
